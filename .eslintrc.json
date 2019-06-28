@@ -1,0 +1,13 @@
+{
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "@nuxtjs",
+    "plugin:nuxt/recommended"
+  ]
+}
