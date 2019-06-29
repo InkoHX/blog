@@ -14,16 +14,6 @@
           <vue-typer
             class="display-1 text-xs-center mb-2"
             :text="texts"
-            repeat="Infinity"
-            shuffle="false"
-            initial-action="erasing"
-            pre-type-delay="70"
-            type-delay="70"
-            pre-erase-delay="2000"
-            erase-delay="300"
-            erase-style="select-all"
-            erase-on-complete="false"
-            caret-animation="blink"
           />
         </v-layout>
       </v-parallax>
@@ -31,9 +21,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  data() {
+  data: function () {
     return {
       texts: ['InkoHX is Developer.']
     }
