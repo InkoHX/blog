@@ -9,10 +9,12 @@
     >
       <v-list>
         <v-list-tile>
-          <v-list-tile-title class="title">InkoHX - Portfolio</v-list-tile-title>
+          <v-list-tile-title class="title">
+            InkoHX - Portfolio
+          </v-list-tile-title>
         </v-list-tile>
 
-        <v-divider/>
+        <v-divider />
 
         <v-list-tile v-for="(item, key) in items" :key="key" :to="item.to">
           <v-list-tile-action>
