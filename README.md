@@ -1,6 +1,8 @@
-# inkohx.me
+# Portfolio
 
 > My profile site.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4baa365f-a270-4565-bb7c-f705c22917f7/deploy-status)](https://app.netlify.com/sites/inkohxme/deploys)
 
 ## Build Setup
 
