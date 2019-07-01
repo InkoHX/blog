@@ -45,6 +45,11 @@ export default class Toolbar extends Vue {
       icon: 'home',
       title: 'Home',
       to: '/'
+    },
+    {
+      icon: 'computer',
+      title: 'Language',
+      to: '/language'
     }
   ]
 }
