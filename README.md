@@ -1,24 +1,35 @@
-# Portfolio
+# InkoHX - Portfolio
 
-> My profile site.
+## Project setup
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4baa365f-a270-4565-bb7c-f705c22917f7/deploy-status)](https://app.netlify.com/sites/inkohxme/deploys)
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm run install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+```bash
+yarn install
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+### Compiles and hot-reloads for development
+
+```bash
+yarn run serve
+```
+
+### Compiles and minifies for production
+
+```bash
+yarn run build
+```
+
+### Run your tests
+
+```bash
+yarn run test
+```
+
+### Lints and fixes files
+
+```bash
+yarn run lint
+```
+
+### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
