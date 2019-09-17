@@ -9,16 +9,14 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-import Content from '@/components/core/Content'
-import Footer from '@/components/core/Footer'
-import Parallax from '@/components/core/Parallax'
-import Navbar from '@/components/core/Navbar'
+import Content from '@/components/core/Content.vue'
+import Parallax from '@/components/core/Parallax.vue'
+import Navbar from '@/components/core/Navbar.vue'
 
 @Component({
   components: {
     Parallax,
     Content,
-    Footer,
     Navbar
   }
 })

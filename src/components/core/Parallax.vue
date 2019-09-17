@@ -12,6 +12,12 @@
   </section>
 </template>
 
+<script lang="ts">
+import { Vue } from 'vue-property-decorator'
+
+export default class Parallax extends Vue {}
+</script>
+
 <style lang="scss">
 .vue-typer .custom.char.typed {
   color: white;
