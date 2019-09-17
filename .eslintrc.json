@@ -1,13 +1,12 @@
 {
-  "plugins": ["@typescript-eslint"],
   "root": true,
   "env": {
-    "browser": true,
     "node": true
   },
   "extends": [
-    "@nuxtjs",
-    "plugin:nuxt/recommended"
+    "plugin:vue/essential",
+    "@vue/standard",
+    "@vue/typescript"
   ],
   "parserOptions": {
     "parser": "@typescript-eslint/parser"
