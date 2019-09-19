@@ -1,9 +1,9 @@
 <template>
   <section>
-    <v-parallax src="@/assets/coding.png" height="700">
+    <v-parallax src="@/assets/coding.png" height="700" alt="Coding Wallpaper">
       <v-layout justify-center align-center column>
         <v-avatar size="256">
-          <img src="@/assets/inkohx.png" />
+          <v-img src="@/assets/inkohx.png" alt="InkoHX Icon" />
         </v-avatar>
         <br />
         <h1><vue-typer text="Hello, My name is InkoHX!" /></h1>
@@ -30,6 +30,7 @@ export default class Parallax extends Vue {}
 
 h1 {
   font-family: "Courier New", Courier, monospace;
+  font-display: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

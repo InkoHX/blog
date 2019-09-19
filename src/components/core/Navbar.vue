@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <v-app-bar app dense dark scroll-off-screen>
-      <v-app-bar-nav-icon @click="toggleNavigation()">
+      <v-app-bar-nav-icon @click="toggleNavigation()" title="Menu">
         <v-icon>reorder</v-icon>
       </v-app-bar-nav-icon>
       <v-toolbar-title>InkoHX - Portfolio</v-toolbar-title>
@@ -9,7 +9,7 @@
     <v-navigation-drawer v-model="navigation" bottom temporary fixed>
       <v-list-item two-line>
         <v-list-item-avatar>
-          <v-img src="@/assets/inkohx.png" />
+          <v-img src="@/assets/inkohx.png" alt="InkoHX Icon" />
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title>InkoHX</v-list-item-title>
