@@ -1,42 +1,68 @@
 <template>
   <div>
     <v-layout align-center justify-center column>
-      <h2 class="title">プロフィール</h2>
-      <br />
-      <v-flex row class="justify-center">
-        <v-card width="300" v-for="card in cards" v-bind:key="card" class="ma-2 pa-6">
-          <v-card-title v-text="card.title" />
-          <v-card-text class="card-text" v-text="card.text" />
-        </v-card>
-      </v-flex>
+      <h2 class="title">Repository</h2><br />
+      <section v-if="pinRepo.error">
+        <p>読み込み中にエラーが発生しました。</p>
+      </section>
+
+      <section v-else>
+        <section v-if="pinRepo.loading">
+          <v-progress-circular :size="50" color="primary" indeterminate />
+        </section>
+
+        <section v-else>
+          <v-flex row class="justify-center">
+            <div v-for="card in pinRepo.axiosResponse.data" v-bind:key="card">
+              <v-card width="300" class="ma-2 pa-6" elevation="6" v-bind:href="'https://github.com/' + card.owner + '/' + card.repo">
+                <v-card-title v-text="card.repo" />
+                <v-card-text v-text="card.description || 'No description.'" />
+              </v-card>
+            </div>
+          </v-flex>
+        </section>
+      </section>
     </v-layout>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import axios, { AxiosResponse } from 'axios'
+
+interface PinnedRepositoryResponse {
+  description: string
+  forks: number
+  language: string
+  owner: string
+  repo: string
+  stars: string
+}
+
+interface PinnedRepository {
+  error: boolean
+  loading: boolean
+  axiosResponse: AxiosResponse<PinnedRepositoryResponse> | null
+}
 
 @Component
 export default class Profile extends Vue {
-  public readonly cards = [
-    {
-      title: 'ゲーム',
-      text: [
-        '・Minecraft',
-        '・Euro Truck Simulator 2',
-        '・Cities: Skyline',
-        '　などなど'
-      ].join('\n')
-    },
-    {
-      title: 'テレビ',
-      text: 'アニメはよく見る。他にニュースとか映画見るとき以外は基本テレビは見ない。'
-    },
-    {
-      title: '活動場所',
-      text: '主にDiscordで活動してます。Twitterもちまちま、他にもQiita, GitHubなど'
-    }
-  ];
+  private pinRepo: PinnedRepository = {
+    error: false,
+    loading: true,
+    axiosResponse: null
+  }
+
+  mounted () {
+    axios
+      .get('https://gh-pinned-repos.now.sh/?username=InkoHX')
+      .then((response: AxiosResponse<PinnedRepositoryResponse>) => (this.pinRepo.axiosResponse = response))
+      .catch((error) => {
+        console.error(error)
+        this.pinRepo.error = true
+      })
+      .finally(() => (this.pinRepo.loading = false))
+  }
 }
 </script>
 
