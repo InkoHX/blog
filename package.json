@@ -18,6 +18,7 @@
     "vuetify": "^2.0.0"
   },
   "devDependencies": {
+    "@mdi/js": "^4.5.95",
     "@types/node": "^12.7.5",
     "@vue/cli": "^3.11.0",
     "@vue/cli-plugin-babel": "^3.11.0",

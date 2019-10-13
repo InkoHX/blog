@@ -2,7 +2,7 @@
   <div id="navbar">
     <v-app-bar app dense dark scroll-off-screen>
       <v-app-bar-nav-icon @click="toggleNavigation()" title="Menu">
-        <v-icon>reorder</v-icon>
+        <v-icon>{{ icons.mdiViewList }}</v-icon>
       </v-app-bar-nav-icon>
       <v-toolbar-title>InkoHX - Portfolio</v-toolbar-title>
     </v-app-bar>
@@ -22,10 +22,14 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { mdiViewList } from '@mdi/js'
 
 @Component
 export default class Navbar extends Vue {
-  private navigation: boolean = false;
+  private navigation: boolean = false
+  private readonly icons = {
+    mdiViewList
+  }
 
   public hasNavigation (): boolean {
     return this.navigation
