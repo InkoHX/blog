@@ -27,6 +27,8 @@ import { mdiViewList } from '@mdi/js'
 @Component
 export default class Navbar extends Vue {
   private navigation: boolean = false
+
+  // @ts-ignore
   private readonly icons = {
     mdiViewList
   }
