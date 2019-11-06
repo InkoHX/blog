@@ -5,7 +5,6 @@
         <v-avatar size="256">
           <v-img src="@/assets/inkohx.png" alt="InkoHX Icon" />
         </v-avatar>
-        <br />
         <h1><vue-typer text="Hello, My name is InkoHX!" /></h1>
       </v-layout>
     </v-parallax>
@@ -29,6 +28,8 @@ export default class Parallax extends Vue {}
 }
 
 h1 {
+  position: absolute;
+  padding-top: 350px;
   font-family: "Courier New", Courier, monospace;
   font-display: auto;
   -webkit-font-smoothing: antialiased;
