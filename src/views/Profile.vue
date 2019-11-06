@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout align-center justify-center column>
-      <h2 class="title">Repository</h2><br />
+      <h2 class="title">Repository</h2>
       <section v-if="pinRepo.error">
         <p>読み込み中にエラーが発生しました。</p>
       </section>
@@ -69,5 +69,9 @@ export default class Profile extends Vue {
 <style lang="scss">
 .card-text {
   white-space: pre-wrap;
+}
+
+h2 {
+  padding-bottom: 10px;
 }
 </style>
