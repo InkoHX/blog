@@ -5,6 +5,7 @@
       "assertions": {
         "dom-size": ["error", {"maxNumericValue": 3000}],
 
+        "unused-css-rules": "off",
         "installable-manifest": "off",
         "offline-start-url": "off",
         "service-worker": "off",
