@@ -67,10 +67,6 @@ export default class Profile extends Vue {
 </script>
 
 <style lang="scss">
-.card-text {
-  white-space: pre-wrap;
-}
-
 h2 {
   padding-bottom: 10px;
 }
