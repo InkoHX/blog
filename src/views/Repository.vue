@@ -14,7 +14,12 @@
         <section v-else>
           <v-flex row class="justify-center">
             <div v-for="card in pinRepo.axiosResponse.data" v-bind:key="card">
-              <v-card width="300" class="ma-2 pa-6" elevation="6" v-bind:href="'https://github.com/' + card.owner + '/' + card.repo">
+              <v-card
+                width="300"
+                class="ma-2 pa-6"
+                elevation="6"
+                v-bind:href="'https://github.com/' + card.owner + '/' + card.repo"
+              >
                 <v-card-title v-text="card.repo" />
                 <v-card-text v-text="card.description || 'No description.'" />
               </v-card>
@@ -31,33 +36,36 @@ import { Vue, Component } from 'vue-property-decorator'
 import axios, { AxiosResponse } from 'axios'
 
 interface PinnedRepositoryResponse {
-  description: string
-  forks: number
-  language: string
-  owner: string
-  repo: string
-  stars: string
+  description: string;
+  forks: number;
+  language: string;
+  owner: string;
+  repo: string;
+  stars: string;
 }
 
 interface PinnedRepository {
-  error: boolean
-  loading: boolean
-  axiosResponse: AxiosResponse<PinnedRepositoryResponse> | null
+  error: boolean;
+  loading: boolean;
+  axiosResponse: AxiosResponse<PinnedRepositoryResponse> | null;
 }
 
 @Component
-export default class Profile extends Vue {
+export default class Repository extends Vue {
   private pinRepo: PinnedRepository = {
     error: false,
     loading: true,
     axiosResponse: null
-  }
+  };
 
   mounted () {
     axios
       .get('https://gh-pinned-repos.now.sh/?username=InkoHX')
-      .then((response: AxiosResponse<PinnedRepositoryResponse>) => (this.pinRepo.axiosResponse = response))
-      .catch((error) => {
+      .then(
+        (response: AxiosResponse<PinnedRepositoryResponse>) =>
+          (this.pinRepo.axiosResponse = response)
+      )
+      .catch(error => {
         console.error(error)
         this.pinRepo.error = true
       })

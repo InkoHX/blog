@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <Navbar />
     <Parallax />
     <Content />
@@ -10,10 +10,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-import Content from '@/components/core/Content.vue'
-import Parallax from '@/components/core/Parallax.vue'
-import Navbar from '@/components/core/Navbar.vue'
-import Footer from '@/components/core/Footer.vue'
+const Content = () => import('@/components/core/Content.vue')
+const Parallax = () => import('@/components/core/Parallax.vue')
+const Navbar = () => import('@/components/core/Navbar.vue')
+const Footer = () => import('@/components/core/Footer.vue')
 
 @Component({
   components: {
