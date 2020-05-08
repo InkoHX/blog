@@ -1,14 +1,24 @@
 {
-  "root": true,
-  "env": {
-    "node": true
-  },
   "extends": [
-    "plugin:vue/essential",
-    "@vue/standard",
-    "@vue/typescript"
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y"
   ],
   "parserOptions": {
-    "parser": "@typescript-eslint/parser"
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "16.13"
+    }
   }
 }
