@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app'
 import * as React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { Reset } from 'styled-reset'
+import Head from 'next/head'
 
 const theme = {
   colors: {
@@ -9,12 +10,25 @@ const theme = {
   }
 }
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Source Code Pro', monospace;
+  }
+`
+
 const App = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props
   return (
     <React.Fragment>
+      <Head>
+        <title>InkoHX | Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+      </Head>
+
       <Reset />
+
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </React.Fragment>

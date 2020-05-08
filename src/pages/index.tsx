@@ -1,13 +1,11 @@
 import * as React from 'react'
-import styled from 'styled-components'
-
-const Title = styled.h1`
-  color: #117;
-`
+import { Text, HomeBackground } from '../components'
 
 const IndexPage = (): JSX.Element => {
   return (
-    <Title>久しぶりのReact</Title>
+    <HomeBackground>
+      <Text color='white' as='h1'>InkoHX</Text>
+    </HomeBackground>
   )
 }
 
