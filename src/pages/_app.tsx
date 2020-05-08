@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import * as React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { Reset } from 'styled-reset'
 
 const theme = {
   colors: {
@@ -11,9 +12,12 @@ const theme = {
 const App = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <React.Fragment>
+      <Reset />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </React.Fragment>
   )
 }
 
