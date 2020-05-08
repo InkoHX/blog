@@ -25,81 +25,85 @@ export type TextWeight = 300 | 400 | 500
 
 export interface TypeScale {
   weight: TextWeight
-  size: string
-  letterSpacing: string
+  size: number
+  letterSpacing: number
 }
 
 const defaultTypeScale: Record<TextType, TypeScale> = {
   'headline-1': {
-    size: '104px',
-    letterSpacing: '-1.5px',
+    size: 104,
+    letterSpacing: -1.5,
     weight: 300
   },
   'headline-2': {
-    size: '65px',
-    letterSpacing: '-0.5px',
+    size: 65,
+    letterSpacing: -0.5,
     weight: 300
   },
   'headline-3': {
-    size: '52px',
-    letterSpacing: '0px',
+    size: 52,
+    letterSpacing: 0,
     weight: 400
   },
   'headline-4': {
-    size: '37px',
-    letterSpacing: '0.25px',
+    size: 37,
+    letterSpacing: 0.25,
     weight: 400
   },
   'headline-5': {
-    size: '26px',
-    letterSpacing: '0px',
+    size: 26,
+    letterSpacing: 0,
     weight: 400
   },
   'headline-6': {
-    size: '22px',
-    letterSpacing: '0.15px',
+    size: 22,
+    letterSpacing: 0.15,
     weight: 500
   },
   'subTitle-1': {
-    size: '17px',
-    letterSpacing: '0.15px',
+    size: 17,
+    letterSpacing: 0.15,
     weight: 400
   },
   'subTitle-2': {
-    size: '15px',
-    letterSpacing: '0.1px',
+    size: 15,
+    letterSpacing: 0.1,
     weight: 500
   },
   'body-1': {
-    size: '17px',
-    letterSpacing: '0.5px',
+    size: 17,
+    letterSpacing: 0.5,
     weight: 400
   },
   'body-2': {
-    size: '15px',
-    letterSpacing: '0.25px',
+    size: 15,
+    letterSpacing: 0.25,
     weight: 400
   },
   button: {
-    size: '15px',
-    letterSpacing: '1.25px',
+    size: 15,
+    letterSpacing: 1.25,
     weight: 500
   },
   caption: {
-    size: '13px',
-    letterSpacing: '0.4px',
+    size: 13,
+    letterSpacing: 0.4,
     weight: 400
   },
   overline: {
-    size: '11px',
-    letterSpacing: '1.5px',
+    size: 11,
+    letterSpacing: 1.5,
     weight: 400
   }
 }
 
-export const Text = styled.p<TextProps>(props => `
-  font-size: ${defaultTypeScale[props.type ?? 'headline-1'].size};
-  font-weight: ${defaultTypeScale[props.type ?? 'headline-1'].weight};
-  letter-spacing: ${defaultTypeScale[props.type ?? 'headline-1'].letterSpacing};
-  color: ${props.color ?? 'black'};
-`)
+export const Text = styled.p<TextProps>(props => {
+  const scale = defaultTypeScale[props.type ?? 'headline-1']
+
+  return `
+    font-size: ${scale.size}px;
+    font-weight: ${scale.weight};
+    letter-spacing: ${scale.letterSpacing}px;
+    color: ${props.color ?? 'black'};
+  `
+})
