@@ -105,5 +105,6 @@ export const Text = styled.p<TextProps>(props => {
     font-weight: ${scale.weight};
     letter-spacing: ${scale.letterSpacing}px;
     color: ${props.color ?? 'black'};
+    word-break: break-all;
   `
 })
