@@ -101,7 +101,7 @@ export const Text = styled.p<TextProps>(props => {
   const scale = defaultTypeScale[props.type ?? 'headline-1']
 
   return `
-    font-size: ${scale.size}px;
+    font-size: ${scale.size / 16}rem;
     font-weight: ${scale.weight};
     letter-spacing: ${scale.letterSpacing}px;
     color: ${props.color ?? 'black'};
