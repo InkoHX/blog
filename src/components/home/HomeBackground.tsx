@@ -7,8 +7,8 @@ const keyframe = keyframes`
 `
 
 export const HomeBackground = styled.div`
-  background: linear-gradient(45deg, #4a148c, #7c43bd, #38006b);
+  background: linear-gradient(45deg, #7c43bd, #4a148c, #38006b);
   background-size: 500% 500%;
   animation: ${keyframe} 10s ease infinite;
-  padding: 200px 50px;
+  padding: 200px 30px;
 `
