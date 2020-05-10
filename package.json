@@ -10,7 +10,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore ."
+    "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
+    "lint:style": "stylelint ./src/**/*.tsx"
   },
   "dependencies": {
     "next": "^9.3.6",
@@ -35,6 +36,10 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
     "eslint-plugin-standard": "^4.0.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "typescript": "^3.8.3"
   }
 }
