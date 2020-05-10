@@ -7,7 +7,7 @@ const TypingText: React.FC = () => {
     'JavaScript programmer.',
     'TypeScript programmer.',
     'Node.js programmer.',
-    'Vue.js programmer',
+    'Vue.js programmer.',
     'React.js programmer.',
     'php programmer.',
     'member of Discord.js Japan User Group.'
