@@ -2,11 +2,13 @@
   "extends": [
     "standard-with-typescript",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "plugins": [
     "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "react-hooks"
   ],
   "parserOptions": {
     "project": "./tsconfig.json",
