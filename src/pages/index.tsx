@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { HomeBackground, Text } from '../components'
+import { Card, Grid, HomeBackground, Logo, Text } from '../components'
 
 const TypingText: React.FC = () => {
   const text = React.useMemo(() => [
@@ -51,11 +51,59 @@ const TypingText: React.FC = () => {
   )
 }
 
+interface Skill {
+  name: string
+  imagePath: string
+}
+
+const Skills: React.FC = () => {
+  const skills = React.useMemo((): Skill[] => [
+    {
+      name: 'JavaScript',
+      imagePath: '/javascript.svg'
+    },
+    {
+      name: 'TypeScript',
+      imagePath: '/typescript.svg'
+    },
+    {
+      name: 'Node.js',
+      imagePath: '/nodejs.svg'
+    }
+  ], [])
+  const cards = skills.map(skill => {
+    return (
+      <Card width='350' height='200' key={skill.name}>
+        <Logo src={skill.imagePath} width='130' height='130'></Logo>
+        <Text as='p' type='body-1' align='center'>{skill.name}</Text>
+      </Card>
+    )
+  })
+
+  return (
+    <React.Fragment>
+      <Text
+        as='h2'
+        type='headline-4'
+        align='center'
+      >
+        Skills
+      </Text>
+      <Grid>
+        {cards}
+      </Grid>
+    </React.Fragment>
+  )
+}
+
 const IndexPage: React.FC = () => {
   return (
-    <HomeBackground>
-      <TypingText />
-    </HomeBackground>
+    <React.Fragment>
+      <HomeBackground>
+        <TypingText />
+      </HomeBackground>
+      <Skills />
+    </React.Fragment>
   )
 }
 

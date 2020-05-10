@@ -19,6 +19,7 @@ export type TextColor = 'black' | 'white'
 export interface TextProps {
   readonly type?: TextType
   readonly color?: TextColor
+  readonly align?: 'center' | 'left' | 'right' | 'justify'
 }
 
 export type TextWeight = 300 | 400 | 500
@@ -105,6 +106,7 @@ export const Text = styled.p<TextProps>(props => {
     font-weight: ${scale.weight};
     letter-spacing: ${scale.letterSpacing}px;
     color: ${props.color ?? 'black'};
+    ${typeof props.align === 'string' ? `text-align: ${props.align};` : ''}
     word-break: break-all;
   `
 })

@@ -19,4 +19,5 @@ export const HomeBackground = styled.div`
   background-size: 500% 500%;
   animation: ${keyframe} 10s ease infinite;
   padding: 200px 30px;
+  margin-bottom: 10px;
 `
