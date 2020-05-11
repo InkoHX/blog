@@ -74,7 +74,7 @@ const Skills: React.FC = () => {
   const cards = skills.map(skill => {
     return (
       <Card width='350' height='200' key={skill.name}>
-        <Logo src={skill.imagePath} width='130' height='130'></Logo>
+        <Logo src={skill.imagePath} alt={skill.name} width='130' height='130'></Logo>
         <Text as='p' type='body-1' align='center'>{skill.name}</Text>
       </Card>
     )
