@@ -1,5 +1,5 @@
 ---
-title: ブログ作りました。
+title: ブログ作りました
 id: hello-everyone
 ---
 
