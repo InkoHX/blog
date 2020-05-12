@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Card, Grid, HomeBackground, Logo, Text } from '../components'
+import { Card, Grid, HomeBackground, Logo, Text, Footer } from '../components'
 
 const TypingText: React.FC = () => {
   const text = React.useMemo(() => [
@@ -103,6 +103,9 @@ const IndexPage: React.FC = () => {
         <TypingText />
       </HomeBackground>
       <Skills />
+      <Footer>
+        <Text as='p' type='subTitle-1'>MIT Licence | Copyright © 2020 InkoHX All rights reserved.</Text>
+      </Footer>
     </React.Fragment>
   )
 }
