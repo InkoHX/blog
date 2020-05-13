@@ -8,8 +8,10 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "react-hooks"
+    "react-hooks",
+    "@typescript-eslint"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaVersion": 2020,
