@@ -1,6 +1,7 @@
 ---
 title: ブログ作りました
-id: hello-everyone
+description: React.jsとNext.js使ってブログみたいなのを作ってみました。今後ここに何か書いていきます。
+tags: []
 ---
 
 # ブログ作りました
