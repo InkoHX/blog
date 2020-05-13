@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Card, Grid, HomeBackground, Logo, Text, Footer } from '../components'
+import { Card, Grid, HomeBackground, CardLogo, Text, Footer } from '../components'
 
 const TypingText: React.FC = () => {
   const text = React.useMemo(() => [
@@ -74,7 +74,7 @@ const Skills: React.FC = () => {
   const cards = skills.map(skill => {
     return (
       <Card width='350' height='200' key={skill.name}>
-        <Logo src={skill.imagePath} alt={skill.name} width='130' height='130'></Logo>
+        <CardLogo src={skill.imagePath} alt={skill.name} width='130' height='130'></CardLogo>
         <Text as='p' type='body-1' align='center'>{skill.name}</Text>
       </Card>
     )
