@@ -47,7 +47,7 @@ const TypingText: React.FC = () => {
   }, [isFinish, isWriting, startTyping])
 
   return (
-    <Text color='white' as='h1' type='headline-6'>InkoHX is { currentText }</Text>
+    <Text color='white' as='h1' type='headline-6' style={{ position: 'absolute' }}>InkoHX is { currentText}</Text>
   )
 }
 
@@ -104,7 +104,7 @@ const IndexPage: React.FC = () => {
       </HomeBackground>
       <Skills />
       <Footer>
-        <Text as='p' type='subTitle-1'>MIT Licence | Copyright © 2020 InkoHX All rights reserved.</Text>
+        <Text as='p' type='subTitle-2'>MIT Licence | Copyright © 2020 InkoHX All rights reserved.</Text>
       </Footer>
     </React.Fragment>
   )
