@@ -1,41 +1,43 @@
-import { promises as fs } from 'fs'
-import matter from 'gray-matter'
+import { glob, parseMarkdownFile, MarkdownFile } from './util'
 
-import { glob, parseMarkdownToHTML } from './util'
-
-export interface Post {
-  data: { [key: string]: unknown }
-  content: string
+export interface FilteredPostYaml {
+  tags: unknown[]
+  description: string
+  title: string
 }
 
-export async function getPost (name: string): Promise<Post> {
-  const file = await glob(`content/posts/**/${name}.md`)
-    .then(paths => paths.shift())
+export interface Post extends MarkdownFile, Omit<FilteredPostYaml, 'tags'> {
+  tags: string[]
+}
 
-  if (!file) throw new Error('content not found.')
+export const getAllPosts = async (): Promise<Post[]> => {
+  const files = await glob('content/posts/**/*.md')
+    .then(paths => Promise.all(paths.map(path => parseMarkdownFile(path))))
 
-  return fs.readFile(file, 'utf8')
-    .then(value => matter(value))
-    .then(async value => {
-      const content = await parseMarkdownToHTML(value.content)
+  return files
+    .filter(file => {
+      const data = file.matterFile.data
 
-      return {
-        data: value.data,
-        content: content.toString('utf8')
-      } as Post
+      if (!Array.isArray(data.tags)) return false
+      if (typeof data.title !== 'string') return false
+      if (typeof data.description !== 'string') return false
+
+      return true
     })
-}
-
-export function getAllPosts (): Promise<Post[]> {
-  return glob('content/posts/**/*.md')
-    .then(paths => Promise.all(paths.map(path => fs.readFile(path, 'utf8'))))
-    .then(values => Promise.all(values.map(value => matter(value))))
-    .then(files => Promise.all(files.map(async file => {
-      const content = await parseMarkdownToHTML(file.content)
+    .map(value => {
+      const data = value.matterFile.data as FilteredPostYaml
+      const tags = data.tags
+        .filter(value => typeof value === 'string') as string[]
 
       return {
-        data: file.data,
-        content: content.toString('utf8')
-      } as Post
-    })))
+        createdDate: value.createdDate,
+        modifiedDate: value.modifiedDate,
+        html: value.html,
+        description: data.description,
+        title: data.title,
+        matterFile: value.matterFile,
+        fileName: value.fileName,
+        tags
+      }
+    })
 }
