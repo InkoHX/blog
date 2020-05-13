@@ -1,41 +1,36 @@
-import { promises as fs } from 'fs'
-import matter from 'gray-matter'
+import { glob, parseMarkdownFile, MarkdownFile } from './util'
 
-import { glob, parseMarkdownToHTML } from './util'
-
-export interface Tag {
-  data: { [key: string]: unknown }
-  content: string
+export interface FilteredTagYaml {
+  name: string
+  description: string
 }
 
-export async function getTag (name: string): Promise<Tag> {
-  const file = await glob(`content/tags/**/${name}.md`)
-    .then(paths => paths.shift())
+export interface Tag extends MarkdownFile, FilteredTagYaml {}
 
-  if (!file) throw new Error('tag not found.')
+export const getAllTags = async (): Promise<Tag[]> => {
+  const files = await glob('content/tags/**/*.md')
+    .then(paths => Promise.all(paths.map(path => parseMarkdownFile(path))))
 
-  return fs.readFile(file, 'utf8')
-    .then(value => matter(value))
-    .then(async value => {
-      const content = await parseMarkdownToHTML(value.content)
+  return files
+    .filter(file => {
+      const data = file.matterFile.data
 
-      return {
-        data: value.data,
-        content: content.toString('utf8')
-      } as Tag
+      if (typeof data.name !== 'string') return false
+      if (typeof data.description !== 'string') return false
+
+      return true
     })
-}
-
-export function getAllTags (): Promise<Tag[]> {
-  return glob('content/tags/**/*.md')
-    .then(paths => Promise.all(paths.map(path => fs.readFile(path, 'utf8'))))
-    .then(values => Promise.all(values.map(value => matter(value))))
-    .then(files => Promise.all(files.map(async file => {
-      const content = await parseMarkdownToHTML(file.content)
+    .map(value => {
+      const data = value.matterFile.data as FilteredTagYaml
 
       return {
-        data: file.data,
-        content: content.toString('utf8')
-      } as Tag
-    })))
+        createdDate: value.createdDate,
+        modifiedDate: value.modifiedDate,
+        html: value.html,
+        description: data.description,
+        name: data.name,
+        matterFile: value.matterFile,
+        fileName: value.fileName
+      }
+    })
 }
