@@ -1,10 +1,11 @@
+import { Typography } from '@material-ui/core'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { BlogBody, HomeBackground, Text } from '../../components'
+import { BlogBody, HomeBackground } from '../../components'
 import { getAllPosts, getPost, Post } from '../../lib'
 
 interface Props {
@@ -22,12 +23,12 @@ const PostPage: React.FC<Readonly<Props>> = (props) => {
   return (
     <React.Fragment>
       <Head>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/a11y-light.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/a11y-dark.min.css" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js" />
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css' />
       </Head>
       <HomeBackground>
-        <Text as='p' type='headline-4' color='white'>{postTitle} - InkoHX blog</Text>
+        <Typography variant='h4' component='p'>{postTitle} - InkoHX blog</Typography>
       </HomeBackground>
       <BlogBody className='markdown-body'>
         <article>

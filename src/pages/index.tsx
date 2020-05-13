@@ -1,6 +1,7 @@
+import { Paper, Typography } from '@material-ui/core'
 import * as React from 'react'
 
-import { Card, Grid, HomeBackground, CardLogo, Text, Footer } from '../components'
+import { HomeBackground } from '../components'
 
 const TypingText: React.FC = () => {
   const text = React.useMemo(() => [
@@ -47,52 +48,7 @@ const TypingText: React.FC = () => {
   }, [isFinish, isWriting, startTyping])
 
   return (
-    <Text color='white' as='h1' type='headline-6' style={{ position: 'absolute' }}>InkoHX is { currentText}</Text>
-  )
-}
-
-interface Skill {
-  name: string
-  imagePath: string
-}
-
-const Skills: React.FC = () => {
-  const skills = React.useMemo((): Skill[] => [
-    {
-      name: 'JavaScript',
-      imagePath: '/javascript.svg'
-    },
-    {
-      name: 'TypeScript',
-      imagePath: '/typescript.svg'
-    },
-    {
-      name: 'Node.js',
-      imagePath: '/nodejs.svg'
-    }
-  ], [])
-  const cards = skills.map(skill => {
-    return (
-      <Card width='350' height='200' key={skill.name}>
-        <CardLogo src={skill.imagePath} alt={skill.name} width='130' height='130'></CardLogo>
-        <Text as='p' type='body-1' align='center'>{skill.name}</Text>
-      </Card>
-    )
-  })
-
-  return (
-    <React.Fragment>
-      <Text
-        as='h2'
-        type='headline-4'
-        align='center'
-      >
-        Skills
-      </Text>
-      <Grid>
-        {cards}
-      </Grid>
-    </React.Fragment>
+    <Typography component='h1' variant='h4'>InkoHX is { currentText }</Typography>
   )
 }
 
@@ -102,10 +58,7 @@ const IndexPage: React.FC = () => {
       <HomeBackground>
         <TypingText />
       </HomeBackground>
-      <Skills />
-      <Footer>
-        <Text as='p' type='subTitle-2'>MIT Licence | Copyright © 2020 InkoHX All rights reserved.</Text>
-      </Footer>
+      <Paper style={{ margin: '300px 0' }} />
     </React.Fragment>
   )
 }

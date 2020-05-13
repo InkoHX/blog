@@ -19,7 +19,7 @@ const Component: React.FC = () => {}
 export default Component
 ```
 
-こんな感じで表示されます。色付けは`highlight.js`を使った。
+色付けは`highlight.js`使用
 
 ## ここに書くもの
 

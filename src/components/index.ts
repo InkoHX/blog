@@ -1,6 +1,3 @@
-export * from './text'
 export * from './home'
-export * from './grid'
-export * from './card'
 export * from './footer'
 export * from './blog'

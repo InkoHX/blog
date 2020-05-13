@@ -1,16 +1,20 @@
+import { ServerStyleSheets as MaterialServerStyleSheet } from '@material-ui/core/styles'
 import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet as StyledServerStyleSheet } from 'styled-components'
 
 export default class extends Document {
   static async getInitialProps (ctx: DocumentContext): Promise<DocumentInitialProps> {
-    const sheet = new ServerStyleSheet()
+    const styledSheet = new StyledServerStyleSheet()
+    const materialSheet = new MaterialServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: App => props => styledSheet.collectStyles(
+            materialSheet.collect(<App {...props} />)
+          )
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -20,18 +24,19 @@ export default class extends Document {
         styles: (
           <React.Fragment>
             {initialProps.styles}
-            {sheet.getStyleElement()}
+            {styledSheet.getStyleElement()}
+            {materialSheet.getStyleElement()}
           </React.Fragment>
         )
       }
     } finally {
-      sheet.seal()
+      styledSheet.seal()
     }
   }
 
   public render (): JSX.Element {
     return (
-      <Html lang='en'>
+      <Html lang='ja'>
         <Head />
         <body>
           <Main />
