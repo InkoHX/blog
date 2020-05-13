@@ -20,6 +20,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - run: yarn --frozen-lockfile
-    - run: yarn run lint && yarn run lint:style
-    - run: npx tsc --noEmit
+    - run: |
+        yarn --frozen-lockfile
+        yarn run lint
+        yarn run lint:style
+        yarn run tsc --noEmit
