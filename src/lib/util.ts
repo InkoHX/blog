@@ -35,7 +35,8 @@ export const parseMarkdownFile = async (path: string): Promise<MarkdownFile> => 
     createdDate: ctime,
     modifiedDate: mtime,
     matterFile: data,
-    fileName: basename(path, '.md')
+    fileName: basename(path, '.md'),
+    filePath: path
   }
 }
 
@@ -45,4 +46,5 @@ export interface MarkdownFile {
   modifiedDate: Date
   html: string
   fileName: string
+  filePath: string
 }

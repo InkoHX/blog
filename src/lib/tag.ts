@@ -1,27 +1,44 @@
 import { glob, parseMarkdownFile, MarkdownFile } from './util'
 
-export interface FilteredTagYaml {
+export interface TagMetadata {
   name: string
   description: string
 }
 
-export interface Tag extends MarkdownFile, FilteredTagYaml {}
+export interface Tag extends MarkdownFile, TagMetadata {}
+
+export const getAllTagPaths = (): Promise<string[]> => glob('content/tags/**/*.md')
+
+export const hasTagMetadata = (data: { [key: string]: string }): boolean => Array.isArray(data.tags) &&
+  typeof data.title === 'string' &&
+  typeof data.description === 'string'
+
+export const getPost = async (path: string): Promise<Tag | null> => {
+  const file = await parseMarkdownFile(path)
+
+  if (!hasTagMetadata(file.matterFile.data)) return null
+  const metadata = file.matterFile.data as TagMetadata
+
+  return {
+    createdDate: file.createdDate,
+    modifiedDate: file.modifiedDate,
+    description: metadata.description,
+    matterFile: file.matterFile,
+    fileName: file.fileName,
+    filePath: file.filePath,
+    html: file.html,
+    name: metadata.name
+  }
+}
 
 export const getAllTags = async (): Promise<Tag[]> => {
-  const files = await glob('content/tags/**/*.md')
+  const files = await getAllTagPaths()
     .then(paths => Promise.all(paths.map(path => parseMarkdownFile(path))))
 
   return files
-    .filter(file => {
-      const data = file.matterFile.data
-
-      if (typeof data.name !== 'string') return false
-      if (typeof data.description !== 'string') return false
-
-      return true
-    })
+    .filter(file => hasTagMetadata(file.matterFile.data))
     .map(value => {
-      const data = value.matterFile.data as FilteredTagYaml
+      const data = value.matterFile.data as TagMetadata
 
       return {
         createdDate: value.createdDate,
@@ -30,7 +47,8 @@ export const getAllTags = async (): Promise<Tag[]> => {
         description: data.description,
         name: data.name,
         matterFile: value.matterFile,
-        fileName: value.fileName
+        fileName: value.fileName,
+        filePath: value.filePath
       }
     })
 }
