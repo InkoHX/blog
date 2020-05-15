@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps<TagProps> = async context => {
   const tag = await getAllTags()
     .then(tags => tags.find(tag => tag.fileName === id))
 
-  if (!tag) throw new Error('')
+  if (!tag) throw new Error('Tag is not found.')
 
   return {
     props: {
