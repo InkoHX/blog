@@ -12,6 +12,6 @@ export const Article = styled(Paper)`
   }
 
   a:visited {
-    color: ${props => props.theme.palette.info.main}
+    color: #90caf9;
   }
 `.withComponent('article')

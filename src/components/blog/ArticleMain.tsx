@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ArticleMain = styled.main`
   a {
-    color: ${props => props.theme.palette.info.main}
+    color: #90caf9;
   }
 
   code {
