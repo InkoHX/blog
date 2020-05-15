@@ -1,5 +1,6 @@
 import { Chip, Typography, Divider } from '@material-ui/core'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 
 const ChipInner = styled(Chip)`
@@ -21,9 +22,10 @@ export const ArticleHeader: React.FC<ArticleHeaderProps> = ({
   title,
   tags
 }) => {
+  const router = useRouter()
   const modifiedDateTime = React.useMemo(() => Intl.DateTimeFormat('ja-JP').format(new Date(modifiedTime)), [modifiedTime])
   const chips = tags?.map(tag => (
-    <ChipInner key={tag} label={tag} />
+    <ChipInner key={tag} label={tag} onClick={() => router.push('/tags/[id]', `/tags/${tag}`)} />
   ))
 
   return (
