@@ -1,5 +1,6 @@
 import { Typography } from '@material-ui/core'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
 import { Article, ArticleMain, HomeBackground, ArticleHeader, ArticleFooter } from '../../components'
@@ -24,6 +25,10 @@ const TagPage: React.FC<TagProps> = ({
       <Head>
         <link rel='stylesheet' href='/style/a11y-dark.css' />
       </Head>
+      <NextSeo
+        description={tag.description}
+        title={tag.name}
+      />
       <HomeBackground>
         <Typography variant='h5' component='p'>{tag.name} - InkoHX blog</Typography>
       </HomeBackground>

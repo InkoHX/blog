@@ -30,7 +30,7 @@ export const ArticleHeader: React.FC<ArticleHeaderProps> = ({
     <header>
       <Headline>
         <Typography variant='h3' component='h1' style={{ marginBottom: '10px' }}>{title}</Typography>
-        <Typography variant='subtitle2'>最終更新日: {modifiedDateTime}</Typography>
+        <Typography variant='subtitle2' component='p'>最終更新日: {modifiedDateTime}</Typography>
         {chips}
       </Headline>
       <Divider style={{ margin: '10px 0' }} />
