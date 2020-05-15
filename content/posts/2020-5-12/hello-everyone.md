@@ -1,14 +1,16 @@
 ---
-title: ブログ作りました
-description: React.jsとNext.js使ってブログみたいなのを作ってみました。今後ここに何か書いていきます。
+title: Next.js使ってブログ作りました。
+description: Next.js使ってブログみたいなのを作ってみました。今後ここに何か書いていきます。
 tags: []
 ---
 
-# ブログ作りました
+ReactとNext.js使ってブログみたいなのを作ってみました。
 
-ReactとNext.js使ってブログみたいなのを作ってみた。
-記事をMarkdownで管理できるようにしてあります。MarkdownをHTMLに変換したときのスタイルを書くのがめんどくさかったので**github-markdown**を使用しました。
-まだ安っぽいけどこれから良くしていく予定
+- 記事とタグはGitHubで**Markdown**として管理しています。
+- 今後デザインの修正等を行っていきもっと使いやすくする予定
+- Lighthouseのスコアもなかなかいい感じ
+- PWAにも対応したい
+- RSSも配信したい
 
 ## コードブロック
 
@@ -20,7 +22,7 @@ const Component: React.FC = () => {}
 export default Component
 ```
 
-色付けは`highlight.js`使用
+色付けは**highlight.js**使用、テーマは**a11y-dark**、なかなかいいんじゃないか？
 
 ## ここに書くもの
 
