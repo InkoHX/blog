@@ -14,4 +14,8 @@ export const Article = styled(Paper)`
   a:visited {
     color: #90caf9;
   }
+
+  a {
+    color: #90caf9;
+  }
 `.withComponent('article')
