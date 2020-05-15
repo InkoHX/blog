@@ -1,4 +1,5 @@
 import { Paper, Typography } from '@material-ui/core'
+import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
 import { HomeBackground } from '../components'
@@ -55,6 +56,14 @@ const TypingText: React.FC = () => {
 const IndexPage: React.FC = () => {
   return (
     <React.Fragment>
+      <NextSeo
+        title='ホーム'
+        openGraph={{
+          description: 'なんかいろいろ書いてある場所',
+          site_name: 'InkoHXのブログ | ホーム',
+          title: 'InkoHXのブログ | ホーム'
+        }}
+      />
       <HomeBackground>
         <TypingText />
       </HomeBackground>

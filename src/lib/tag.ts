@@ -9,11 +9,11 @@ export interface Tag extends MarkdownFile, TagMetadata {}
 
 export const getAllTagPaths = (): Promise<string[]> => glob('content/tags/**/*.md')
 
-export const hasTagMetadata = (data: { [key: string]: string }): boolean => Array.isArray(data.tags) &&
-  typeof data.title === 'string' &&
+export const hasTagMetadata = (data: { [key: string]: string }): boolean =>
+  typeof data.name === 'string' &&
   typeof data.description === 'string'
 
-export const getPost = async (path: string): Promise<Tag | null> => {
+export const getTag = async (path: string): Promise<Tag | null> => {
   const file = await parseMarkdownFile(path)
 
   if (!hasTagMetadata(file.matterFile.data)) return null
@@ -34,9 +34,9 @@ export const getPost = async (path: string): Promise<Tag | null> => {
 export const getAllTags = async (): Promise<Tag[]> => {
   const files = await getAllTagPaths()
     .then(paths => Promise.all(paths.map(path => parseMarkdownFile(path))))
+    .then(files => files.filter(file => hasTagMetadata(file.matterFile.data)))
 
   return files
-    .filter(file => hasTagMetadata(file.matterFile.data))
     .map(value => {
       const data = value.matterFile.data as TagMetadata
 
