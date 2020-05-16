@@ -1,8 +1,16 @@
-import { Paper, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
+import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
+import styled from 'styled-components'
 
-import { HomeBackground } from '../components'
+import { ArticleItem, ArticleList, HomeBackground } from '../components'
+import { getAllPosts, getAllTags } from '../lib'
+
+interface IndexPageProps {
+  tags: ArticleItem[]
+  posts: ArticleItem[]
+}
 
 const TypingText: React.FC = () => {
   const text = React.useMemo(() => [
@@ -49,11 +57,22 @@ const TypingText: React.FC = () => {
   }, [isFinish, isWriting, startTyping])
 
   return (
-    <Typography component='h1' variant='h4'>InkoHX is { currentText }</Typography>
+    <Typography style={{ position: 'absolute' }} component='h1' variant='h4'>InkoHX is { currentText}</Typography>
   )
 }
 
-const IndexPage: React.FC = () => {
+const ArticleElement = styled.div`
+  margin: auto 50px;
+
+  @media screen and (max-width: 900px) {
+    margin: auto 5px;
+  }
+`
+
+const IndexPage: React.FC<IndexPageProps> = ({
+  posts,
+  tags
+}) => {
   return (
     <React.Fragment>
       <NextSeo
@@ -67,9 +86,40 @@ const IndexPage: React.FC = () => {
       <HomeBackground>
         <TypingText />
       </HomeBackground>
-      <Paper style={{ margin: '300px 0' }} />
+      <ArticleElement>
+        <ArticleList type='post' items={posts} />
+        <ArticleList type='tag' items={tags} />
+      </ArticleElement>
     </React.Fragment>
   )
+}
+
+export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
+  const tags = await getAllTags()
+    .then(tags => tags.slice(0, 9))
+    .then(tags => tags.map<ArticleItem>(tag => {
+      return {
+        fileName: tag.fileName,
+        description: tag.description,
+        title: tag.name
+      }
+    }))
+  const posts = await getAllPosts()
+    .then(posts => posts.slice(0, 9))
+    .then(posts => posts.map<ArticleItem>(post => {
+      return {
+        fileName: post.fileName,
+        description: post.description,
+        title: post.title
+      }
+    }))
+
+  return {
+    props: {
+      posts,
+      tags
+    }
+  }
 }
 
 export default IndexPage
