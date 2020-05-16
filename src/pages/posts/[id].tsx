@@ -24,6 +24,9 @@ interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'crea
 const PostPage: React.FC<PostProps> = ({
   post
 }) => {
+  const createdDate = React.useMemo(() => new Date(post.createdDate).toISOString(), [post.createdDate])
+  const modifiedDate = React.useMemo(() => new Date(post.modifiedDate).toISOString(), [post.modifiedDate])
+
   return (
     <React.Fragment>
       <Head>
@@ -32,6 +35,17 @@ const PostPage: React.FC<PostProps> = ({
       <NextSeo
         description={post.description}
         title={post.title}
+        openGraph={{
+          type: 'article',
+          site_name: `${post.title} | InkoHX Blog`,
+          title: `${post.title} | InkoHX Blog`,
+          description: post.description,
+          article: {
+            modifiedTime: modifiedDate,
+            publishedTime: createdDate,
+            tags: post.tags.map(tag => tag.name)
+          }
+        }}
       />
       <HomeBackground>
         <Typography variant='h5' component='p'>{post.title} - InkoHX blog</Typography>

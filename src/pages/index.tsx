@@ -77,10 +77,11 @@ const IndexPage: React.FC<IndexPageProps> = ({
     <React.Fragment>
       <NextSeo
         title='ホーム'
+        description='InkoHXのブログです。適当になんか技術的なこと中心に書いてます。'
         openGraph={{
           description: 'なんかいろいろ書いてある場所',
-          site_name: 'InkoHXのブログ | ホーム',
-          title: 'InkoHXのブログ | ホーム'
+          site_name: 'ホーム | InkoHX Blog',
+          title: 'ホーム | InkoHX Blog'
         }}
       />
       <HomeBackground>

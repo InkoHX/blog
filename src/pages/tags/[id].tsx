@@ -20,6 +20,9 @@ interface SerializeTag extends Omit<Tag, 'matterFile' | 'createdDate' | 'modifie
 const TagPage: React.FC<TagProps> = ({
   tag
 }) => {
+  const createdDate = React.useMemo(() => new Date(tag.createdDate).toISOString(), [tag.createdDate])
+  const modifiedDate = React.useMemo(() => new Date(tag.modifiedDate).toISOString(), [tag.modifiedDate])
+
   return (
     <React.Fragment>
       <Head>
@@ -28,6 +31,17 @@ const TagPage: React.FC<TagProps> = ({
       <NextSeo
         description={tag.description}
         title={tag.name}
+        openGraph={{
+          type: 'article',
+          article: {
+            tags: [tag.name],
+            publishedTime: createdDate,
+            modifiedTime: modifiedDate
+          },
+          description: tag.description,
+          title: `${tag.name} | InkoHX Blog`,
+          site_name: `${tag.name} | InkoHX Blog`
+        }}
       />
       <HomeBackground>
         <Typography variant='h5' component='p'>{tag.name} - InkoHX blog</Typography>
