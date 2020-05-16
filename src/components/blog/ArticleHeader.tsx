@@ -22,7 +22,7 @@ export const ArticleHeader: React.FC<ArticleHeaderProps> = ({
 }) => {
   const modifiedDateTime = React.useMemo(() => Intl.DateTimeFormat('ja-JP').format(new Date(modifiedTime)), [modifiedTime])
   const chips = tags?.map(tag => (
-    <NextLink key={tag.name} href='/tags/[id]' as={`/tags/${tag.fileName}`}>
+    <NextLink key={tag.name} href='/tags/[id]' as={`/tags/${tag.fileName}`} passHref>
       <Chip label={tag.name} />
     </NextLink>
   ))
