@@ -13,6 +13,8 @@ jobs:
        uses: actions/setup-node@v1
        with:
         node-version: '14.x'
+     - name: Install dependencies
+       run: yarn --frozen-lockfile
      - name: Run StyleLint
        run: yarn run lint:style
    
@@ -26,6 +28,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
       - name: Run ESLint
         run: yarn run lint
        
@@ -39,4 +43,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - run: yarn run tsc --noEmit
+    - name: Install dependencies
+      run: yarn --frozen-lockfile
+    - name: Run TypeScript Compiler
+      run: yarn run tsc --noEmit
