@@ -1,17 +1,36 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Node.js CI
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
-  build:
+  stylelint:
+   name: StyleLint
+   runs-on: ubuntu-latest
 
+   steps:
+     - uses: actions/checkout@v2
+     - name: Use Node.js v14
+       uses: actions/setup-node@v1
+       with:
+        node-version: '14.x'
+     - name: Run StyleLint
+       run: yarn run lint:style
+   
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Run StyleLint
+        run: yarn run lint
+       
+  type-checking:
+    name: TypeScript Compiler
     runs-on: ubuntu-latest
 
     steps:
@@ -20,8 +39,4 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - run: |
-        yarn --frozen-lockfile
-        yarn run lint
-        yarn run lint:style
-        yarn run tsc --noEmit
+    - run: yarn run tsc --noEmit
