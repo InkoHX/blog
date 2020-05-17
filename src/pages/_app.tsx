@@ -7,7 +7,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
-import { Footer } from '../components'
+import { Footer, AppBar } from '../components'
 import { defaultTheme } from '../styles'
 
 const App = (props: AppProps): JSX.Element => {
@@ -39,6 +39,7 @@ const App = (props: AppProps): JSX.Element => {
         <MaterialThemeProvider theme={defaultTheme}>
           <StyledThemeProvider theme={defaultTheme}>
             <CssBaseline />
+            <AppBar />
             <Component {...pageProps} />
             <Footer />
           </StyledThemeProvider>
