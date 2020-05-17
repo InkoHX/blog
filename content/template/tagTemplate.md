@@ -1,6 +1,6 @@
 ---
-name: タグの説明
-description: 簡単な説明（記事リストの説明などに使う）
+name: タグの名前
+description: 簡単な説明
 ---
 
 hello world
