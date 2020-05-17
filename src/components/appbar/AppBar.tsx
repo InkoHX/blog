@@ -15,7 +15,7 @@ export const AppBar: React.FC = () => {
       <MaterialAppBar color='inherit'>
         <Toolbar>
           <HomeIconButton />
-          <AppBarTitle variant='h6'>InkoHX Blog</AppBarTitle>
+          <AppBarTitle variant='h6' variantMapping={{ h6: 'p' }}>InkoHX Blog</AppBarTitle>
         </Toolbar>
       </MaterialAppBar>
     </Slide>
