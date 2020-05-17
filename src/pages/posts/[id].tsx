@@ -2,10 +2,12 @@ import { Typography } from '@material-ui/core'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 
 import { Article, ArticleFooter, ArticleHeader, ArticleMain, HomeBackground } from '../../components'
-import { getAllPosts, Post, TagMetadata, getAllTags } from '../../lib'
+import { getAllPosts, getAllTags, Post, TagMetadata } from '../../lib'
+import { internalLinkClickHandler } from '../../lib/router'
 
 interface PostProps {
   post: SerializePost
@@ -24,8 +26,10 @@ interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'crea
 const PostPage: React.FC<PostProps> = ({
   post
 }) => {
+  const router = useRouter()
   const createdDate = React.useMemo(() => new Date(post.createdDate).toISOString(), [post.createdDate])
   const modifiedDate = React.useMemo(() => new Date(post.modifiedDate).toISOString(), [post.modifiedDate])
+  const handleInternalLink = React.useCallback((event: React.MouseEvent<HTMLElement>) => internalLinkClickHandler(event, router), [router])
 
   return (
     <React.Fragment>
@@ -56,7 +60,7 @@ const PostPage: React.FC<PostProps> = ({
           title={post.title}
           tags={post.tags}
         />
-        <ArticleMain dangerouslySetInnerHTML={{ __html: post.html }} />
+        <ArticleMain onClick={handleInternalLink} dangerouslySetInnerHTML={{ __html: post.html }} />
         <ArticleFooter filePath={post.filePath} />
       </Article>
     </React.Fragment>

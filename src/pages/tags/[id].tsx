@@ -1,11 +1,13 @@
 import { Typography } from '@material-ui/core'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { Article, ArticleMain, HomeBackground, ArticleHeader, ArticleFooter } from '../../components'
+import { Article, ArticleFooter, ArticleHeader, ArticleMain, HomeBackground } from '../../components'
 import { getAllTags, Tag, TagMetadata } from '../../lib'
-import Head from 'next/head'
+import { internalLinkClickHandler } from '../../lib/router'
 
 interface TagProps {
   tag: SerializeTag
@@ -20,8 +22,10 @@ interface SerializeTag extends Omit<Tag, 'matterFile' | 'createdDate' | 'modifie
 const TagPage: React.FC<TagProps> = ({
   tag
 }) => {
+  const router = useRouter()
   const createdDate = React.useMemo(() => new Date(tag.createdDate).toISOString(), [tag.createdDate])
   const modifiedDate = React.useMemo(() => new Date(tag.modifiedDate).toISOString(), [tag.modifiedDate])
+  const handleInternalLink = React.useCallback((event: React.MouseEvent<HTMLElement>) => internalLinkClickHandler(event, router), [router])
 
   return (
     <React.Fragment>
@@ -51,7 +55,7 @@ const TagPage: React.FC<TagProps> = ({
           modifiedTime={tag.modifiedDate}
           title={tag.name}
         />
-        <ArticleMain dangerouslySetInnerHTML={{ __html: tag.html }} />
+        <ArticleMain onClick={handleInternalLink} dangerouslySetInnerHTML={{ __html: tag.html }} />
         <ArticleFooter filePath={tag.filePath} />
       </Article>
     </React.Fragment>
