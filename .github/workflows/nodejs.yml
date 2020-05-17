@@ -4,20 +4,20 @@ on: [push, pull_request]
 
 jobs:
   stylelint:
-   name: StyleLint
-   runs-on: ubuntu-latest
+    name: StyleLint
+    runs-on: ubuntu-latest
 
-   steps:
-     - uses: actions/checkout@v2
-     - name: Use Node.js v14
-       uses: actions/setup-node@v1
-       with:
-        node-version: '14.x'
-     - name: Install dependencies
-       run: yarn --frozen-lockfile
-     - name: Run StyleLint
-       run: yarn run lint:style
-   
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Run StyleLint
+        run: yarn run lint:style
+
   eslint:
     name: ESLint
     runs-on: ubuntu-latest
@@ -27,23 +27,23 @@ jobs:
       - name: Use Node.js v14
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: "14.x"
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Run ESLint
         run: yarn run lint
-       
+
   type-checking:
     name: TypeScript Compiler
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js v14
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-    - name: Install dependencies
-      run: yarn --frozen-lockfile
-    - name: Run TypeScript Compiler
-      run: yarn run tsc --noEmit
+      - uses: actions/checkout@v2
+      - name: Use Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Run TypeScript Compiler
+        run: yarn run tsc --noEmit
