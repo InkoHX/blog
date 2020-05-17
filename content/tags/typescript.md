@@ -20,21 +20,27 @@ TypeScript は Microsoft が開発している**静的型付け言語**です。
 
 ```ts
 interface Parrot {
-  name: string
-  age: number
+  nickname: string
+  age: number,
+  attack: number,
+  defence: number
 }
 
-const parrot: Parrot = {
-  name: 'InkoHX',
-  age: 123456789
+const fastBlizzard: Readonly<Parrot> = {
+  nickname: 'FastBlizzard',
+  age: 123456789,
+  attack: 99999,
+  defence: 99999
 }
 
-const badParrot: Parrot = {
-  name: 'BadHX',
-  age: '123456789' // 型エラー
-}
+const showParrot (parrot: Readonly<Parrot>): void => console.log([
+  `Nickname: ${parrot.nickname ?? 'Anonymous'}`,
+  `Age: ${parrot.age ?? 20}`,
+  `Attack: ${parrot.attack}`,
+  `Defence: ${parrot.defence}`
+])
 
-console.log(`Name: ${parrot.name} | ${age} years old.`)
+showParrot(fastBlizzard)
 ```
 
 ## 関連リンク
