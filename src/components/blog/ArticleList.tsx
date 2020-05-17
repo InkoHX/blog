@@ -19,6 +19,10 @@ const TableContainerInner = styled(TableContainer)`
   background-color: ${props => props.theme.palette.background.paper};
 `
 
+const TableRowInner = styled(TableRow)`
+  cursor: pointer;
+`
+
 export const ArticleList: React.FC<ArticleListProps> = ({
   type,
   items
@@ -32,10 +36,10 @@ export const ArticleList: React.FC<ArticleListProps> = ({
   }), [type, items])
   const rows = articleItems.map(item => (
     <NextLink key={item.path} href={`/${type}s/[id]`} as={item.path} passHref>
-      <TableRow hover>
+      <TableRowInner hover>
         <TableCell>{item.title}</TableCell>
         <TableCell>{item.description}</TableCell>
-      </TableRow>
+      </TableRowInner>
     </NextLink>
   ))
 
