@@ -1,9 +1,9 @@
 {
-  "name": "portfolio",
+  "name": "blog",
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/InkoHX/Portfolio.git",
+  "repository": "https://github.com/InkoHX/blog.git",
   "author": "InkoHX <inkohx@gmail.com>",
   "license": "MIT",
   "scripts": {
