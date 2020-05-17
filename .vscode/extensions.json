@@ -3,6 +3,7 @@
     "stylelint.vscode-stylelint",
     "jpoissonnier.vscode-styled-components",
     "DavidAnson.vscode-markdownlint",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint"
   ]
 }
