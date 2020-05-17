@@ -16,7 +16,6 @@ Visual Studio Code は Web技術 を使用して作られた無料の高性能�
 
 他のコードエディタを使っていたユーザーという人でどうしてもなれない場合、キーマップをそのエディタに合わせる拡張機能があるかもしれないのでその拡張機能を [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) で探してインストールするとショートカットキーの配置がそのエディタに合わせることができるのでオススメ
 
-
 # 呼び方
 
 ビジュアル スタジオ コード と読む。

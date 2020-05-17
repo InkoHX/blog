@@ -1,0 +1,6 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/master/schema/markdownlint-config-schema.json",
+  "default": true,
+  "first-line-h1": false,
+  "line-length": false
+}

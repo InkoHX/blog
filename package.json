@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
-    "lint:style": "stylelint ./src/**/*.tsx"
+    "lint:style": "stylelint ./src/**/*.tsx",
+    "lint:markdown": "markdownlint ./"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.14",
@@ -43,6 +44,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.2",
     "eslint-plugin-standard": "^4.0.1",
+    "markdownlint-cli": "^0.23.1",
     "stylelint": "^13.4.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
