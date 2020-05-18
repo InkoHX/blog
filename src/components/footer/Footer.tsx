@@ -5,7 +5,7 @@ import * as React from 'react'
 const FooterInner = styled(Paper)`
   width: 100%;
   padding: 50px 30px;
-  background-color: ${props => props.theme.palette.background.paper}
+  background-color: ${props => props.theme.palette.background.paper};
 `
 
 export const Footer: React.FC = () => {
