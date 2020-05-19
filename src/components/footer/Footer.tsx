@@ -4,14 +4,14 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { UrlObject } from 'url'
 
-type FooterGridItemInternal = {
+interface FooterGridItemInternal {
   type: 'internal'
   name: string
   href: string
   as?: string | UrlObject
 }
 
-type FooterGridItemExternal = {
+interface FooterGridItemExternal {
   type: 'external'
   name: string
   href: string
@@ -20,8 +20,8 @@ type FooterGridItemExternal = {
 type FooterGirdItem = FooterGridItemExternal | FooterGridItemInternal
 
 interface FooterGridListProps {
-  title: string,
-  items: Readonly<FooterGirdItem>[]
+  title: string
+  items: Array<Readonly<FooterGirdItem>>
 }
 
 const FooterInner = styled(Paper)`
@@ -77,7 +77,7 @@ export const FooterGridList: React.FC<Readonly<FooterGridListProps>> = ({
 }
 
 export const Footer: React.FC = () => {
-  const blog: FooterGridListProps =  {
+  const blog: FooterGridListProps = {
     title: 'Blog',
     items: [
       {

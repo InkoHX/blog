@@ -14,10 +14,10 @@ type PickedPost = Pick<Post, 'description' | 'fileName' | 'title'>
 
 type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
 
-type Posts = (PickedPost & { tags: ReadonlyArray<PickedTags> })
+type Posts = (PickedPost & { tags: readonly PickedTags[] })
 
 interface PostsPageProps {
-  posts: ReadonlyArray<Posts>
+  posts: readonly Posts[]
 }
 
 const Table = styled.div`
@@ -56,8 +56,9 @@ const PostsPage: React.FC<PostsPageProps> = ({
           actions={[
             {
               tooltip: '見る',
+              // eslint-disable-next-line react/display-name
               icon: () => <OpenInNew />,
-              onClick: ((_event, data) => router.push('/posts/[id]', `/posts/${Array.isArray(data) ? data.shift()?.fileName : data.fileName}`))
+              onClick: (_event, data) => router.push('/posts/[id]', `/posts/${Array.isArray(data) ? data.shift()?.fileName ?? '' : data.fileName}`)
             }
           ]}
           options={{
@@ -86,12 +87,12 @@ export const getStaticProps: GetStaticProps<Readonly<PostsPageProps>> = async ()
         tags: tags
           .filter(tag => post.tags.includes(tag.name))
           .map<PickedTags>(tag => {
-            return {
-              fileName: tag.fileName,
-              name: tag.name,
-              description: tag.description
-            }
-          })
+          return {
+            fileName: tag.fileName,
+            name: tag.name,
+            description: tag.description
+          }
+        })
       }
     }))
 

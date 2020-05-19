@@ -1,4 +1,4 @@
-import { Localization } from "material-table";
+import { Localization } from 'material-table'
 
 export const tableLocales: Localization = {
   body: {
