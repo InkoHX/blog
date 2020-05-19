@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
         variant='body1'
         component='p'
       >
-        プログラム、コンテンツは<Typography color='inherit' component='a' href='https://github.com/InkoHX/blog/blob/master/LICENSE'>MIT Licence</Typography>に基づいて公開されています。
+        プログラム、コンテンツは<Typography color='inherit' component='a' href='https://github.com/InkoHX/blog/blob/master/LICENSE'>MITライセンス</Typography>に基づいてオープンソースプロジェクトとして公開されています。
       </Typography>
     </FooterInner>
   )
