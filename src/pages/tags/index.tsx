@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import { HomeBackground } from '../../components'
 import { getAllTags, Tag } from '../../lib'
 import { tableIcons, tableLocales } from '../../lib/material-table'
+import { NextSeo } from 'next-seo'
 
 type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
 
@@ -31,6 +32,16 @@ const PostsPage: React.FC<TagsPageProps> = ({
 
   return (
     <React.Fragment>
+      <NextSeo
+        title='タグ一覧'
+        description='InkoHXのブログに存在するタグの一覧'
+        openGraph={{
+          type: 'website',
+          site_name: 'InkoHX Blog',
+          title: 'タグ一覧',
+          description: 'InkoHXのブログに存在するタグの一覧'
+        }}
+      />
       <HomeBackground>
         <Typography variant='h4' component='h1'>タグ一覧 - InkoHX Blog</Typography>
       </HomeBackground>
