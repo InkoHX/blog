@@ -22,7 +22,7 @@ export const tableLocales: Localization = {
   pagination: {
     firstAriaLabel: '最初のページ',
     firstTooltip: '最初のページ',
-    labelDisplayedRows: '{from}-{to} | 現在のページ: {count}',
+    labelDisplayedRows: '{from}-{to} of {count}', // ???
     labelRowsSelect: '行',
     labelRowsPerPage: '１ページあたりの行数:',
     lastAriaLabel: '最後のページ',
