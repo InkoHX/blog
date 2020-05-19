@@ -64,6 +64,7 @@ const PostsPage: React.FC<PostsPageProps> = ({
           options={{
             search: true,
             pageSizeOptions: [],
+            pageSize: 10,
             showTitle: false,
             draggable: false,
             actionsColumnIndex: 1
