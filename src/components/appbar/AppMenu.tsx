@@ -22,7 +22,7 @@ export const AppMenuIcon: React.FC = () => {
 
   return (
     <React.Fragment>
-      <IconButton onClick={() => setOpen(true)}>
+      <IconButton aria-label='メニュー' onClick={() => setOpen(true)}>
         <Menu />
       </IconButton>
       <Drawer open={isOpen} onClose={() => setOpen(false)} anchor='left'>
