@@ -41,8 +41,7 @@ const PostPage: React.FC<PostProps> = ({
         title={post.title}
         openGraph={{
           type: 'article',
-          site_name: `${post.title} | InkoHX Blog`,
-          title: `${post.title} | InkoHX Blog`,
+          title: `${post.title}`,
           description: post.description,
           article: {
             modifiedTime: modifiedDate,

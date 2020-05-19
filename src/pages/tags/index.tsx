@@ -37,7 +37,6 @@ const PostsPage: React.FC<TagsPageProps> = ({
         description='InkoHXのブログに存在するタグの一覧'
         openGraph={{
           type: 'website',
-          site_name: 'InkoHX Blog',
           title: 'タグ一覧',
           description: 'InkoHXのブログに存在するタグの一覧'
         }}

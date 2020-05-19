@@ -79,9 +79,8 @@ const IndexPage: React.FC<IndexPageProps> = ({
         title='ホーム'
         description='InkoHXのブログです。適当になんか技術的なこと中心に書いてます。'
         openGraph={{
-          description: 'なんかいろいろ書いてある場所',
-          site_name: 'ホーム | InkoHX Blog',
-          title: 'ホーム | InkoHX Blog'
+          description: '技術的なことについてInkoHXが色々書いているサイト',
+          title: 'ホーム'
         }}
       />
       <HomeBackground>

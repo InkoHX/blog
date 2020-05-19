@@ -26,7 +26,7 @@ const App = (props: AppProps): JSX.Element => {
         openGraph={{
           locale: 'ja-JP',
           type: 'website',
-          title: 'InkoHX Blog',
+          site_name: 'InkoHX Blog',
           url: `https://inkohx.me${router.asPath}`
         }}
       />

@@ -41,7 +41,6 @@ const PostsPage: React.FC<PostsPageProps> = ({
         description='InkoHXがブログに投稿した記事の一覧ページ'
         openGraph={{
           type: 'website',
-          site_name: 'InkoHX Blog',
           title: '記事一覧',
           description: 'InkoHXがブログに投稿した記事の一覧ページ'
         }}

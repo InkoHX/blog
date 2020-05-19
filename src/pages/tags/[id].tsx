@@ -43,8 +43,7 @@ const TagPage: React.FC<TagProps> = ({
             modifiedTime: modifiedDate
           },
           description: tag.description,
-          title: `${tag.name} | InkoHX Blog`,
-          site_name: `${tag.name} | InkoHX Blog`
+          title: `${tag.name}`
         }}
       />
       <HomeBackground>
