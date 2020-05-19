@@ -44,7 +44,7 @@ const PostsPage: React.FC<TagsPageProps> = ({
             return {
               name: tag.name,
               description: tag.description,
-              fileName: tag.fileName,
+              fileName: tag.fileName
             }
           })}
           actions={[
