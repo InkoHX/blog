@@ -4,6 +4,7 @@
     "jpoissonnier.vscode-styled-components",
     "DavidAnson.vscode-markdownlint",
     "streetsidesoftware.code-spell-checker",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "taichi.vscode-textlint"
   ]
 }

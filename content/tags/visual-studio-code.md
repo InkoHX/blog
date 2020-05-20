@@ -14,7 +14,9 @@ Visual Studio Code は Web技術 を使用して作られた無料の高性能�
 
 # キーマップ
 
-他のコードエディタを使っていたユーザーという人でどうしてもなれない場合、キーマップをそのエディタに合わせる拡張機能があるかもしれないのでその拡張機能を [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) で探してインストールするとショートカットキーの配置がそのエディタに合わせることができるのでオススメ
+他のコードエディタを使っていた人でどうしてもキーの配置になれない場合、キーの配置を他のエディタに合わせる拡張機能があるので、下記のリンクから探してインストールしてみるとよいでしょう。
+
+- [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs)
 
 # 呼び方
 
@@ -22,24 +24,24 @@ Visual Studio Code は Web技術 を使用して作られた無料の高性能�
 
 ## 略称
 
-**VS Code** と書く
+**VS Code** と書く。
 
-- [公式ツイッター](https://twitter.com/code)がそのように呼んでいる
+- [公式ツイッター](https://twitter.com/code)がそのように呼んでいる。
 - **VSCode** と書く人もいるそう。
 
 # IDEではない
 
-Visual Studio と勘違いしているのかもしれないが、IDE ではない。
+Visual Studio と勘違いしているのかは分からないが、IDE ではない。
 
 # ダウンロード
 
-[こちら](https://code.visualstudio.com/)からダウンロード可能
+[こちら](https://code.visualstudio.com/)からダウンロード可能です。
 
 - Stable Build は安定版
   - 安定した機能を使いたい人はこちらがオススメ
 - Insider Build は最新版、ほぼ毎日更新がある。
-  - 最新の機能を楽しみたいなら使用してもよいかも
-  - 急に使えなくなることもあるかもしれないので注意
+  - 最新の機能を楽しみたいなら使ってみよう。
+  - 急に使えなくなることもあるようなので注意してください。
 
 # 関連リンク
 

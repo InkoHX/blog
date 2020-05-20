@@ -22,7 +22,7 @@ const Component: React.FC = () => {}
 export default Component
 ```
 
-色付けは**highlight.js**使用、テーマは**a11y-dark**、なかなかいいんじゃないか？
+色付けは**highlight.js**使用、テーマは**a11y-dark**、なかなか良い。
 
 ## ここに書くもの
 
