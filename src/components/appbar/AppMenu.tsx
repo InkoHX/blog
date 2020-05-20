@@ -1,5 +1,5 @@
-import { Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Typography, Divider } from '@material-ui/core'
-import { Home, Menu } from '@material-ui/icons'
+import { Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core'
+import { Home, Menu, Label, Description } from '@material-ui/icons'
 import NextLink from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -17,8 +17,71 @@ const AppMenuTitle = styled(Typography)`
   margin: 20px 0 !important;
 `
 
+interface MenuIconButtonProps {
+  title: string
+  href: string
+  label: string
+  onClick?: ((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void)
+  as?: string
+}
+
+const MenuIconButton: React.FC<MenuIconButtonProps> = ({
+  href,
+  title,
+  label,
+  as,
+  children,
+  onClick
+}) => {
+  return (
+    <NextLink href={href} as={as} passHref>
+      <ListItemInner button aria-label={label} onClick={onClick}>
+        <ListItemIcon>
+          {children}
+        </ListItemIcon>
+        <ListItemText>{title}</ListItemText>
+      </ListItemInner>
+    </NextLink>
+  )
+}
+
+type MenuButtons = ReadonlyArray<Omit<MenuIconButtonProps, 'onClick' | 'label'> & { icon: JSX.Element }>
+
 export const AppMenuIcon: React.FC = () => {
   const [isOpen, setOpen] = React.useState(false)
+  const menuButtonClickHandler = React.useCallback(() => setOpen(false), [setOpen])
+
+  const menuButtons: MenuButtons = [
+    {
+      title: 'ホーム',
+      href: '/',
+      icon: <Home />
+    },
+    {
+      title: '記事一覧',
+      href: '/posts',
+      icon: <Description />
+    },
+    {
+      title: 'タグ一覧',
+      href: '/tags',
+      icon: <Label />
+    }
+  ]
+
+  const menuButtonElements = menuButtons
+    .map(value => (
+      <MenuIconButton
+        key={value.title}
+        title={value.title}
+        label={value.title}
+        href={value.href}
+        as={value.as}
+        onClick={menuButtonClickHandler}
+      >
+        {value.icon}
+      </MenuIconButton>
+    ))
 
   return (
     <React.Fragment>
@@ -29,14 +92,7 @@ export const AppMenuIcon: React.FC = () => {
         <AppMenuTitle variant='h6' variantMapping={{ h6: 'p' }} align='center'>InkoHX Blog</AppMenuTitle>
         <Divider />
         <ListInner>
-          <NextLink href='/' passHref>
-            <ListItemInner button>
-              <ListItemIcon>
-                <Home />
-              </ListItemIcon>
-              <ListItemText>ホーム</ListItemText>
-            </ListItemInner>
-          </NextLink>
+          {menuButtonElements}
         </ListInner>
       </Drawer>
     </React.Fragment>
