@@ -43,7 +43,15 @@ const TagPage: React.FC<TagProps> = ({
             modifiedTime: modifiedDate
           },
           description: tag.description,
-          title: `${tag.name}`
+          title: `${tag.name}`,
+          images: [
+            {
+              url: `https://og-generator.now.sh/?title=${encodeURIComponent(tag.name)}`,
+              width: 1280,
+              height: 680,
+              alt: tag.name
+            }
+          ]
         }}
       />
       <HomeBackground>

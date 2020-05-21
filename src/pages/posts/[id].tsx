@@ -47,7 +47,15 @@ const PostPage: React.FC<PostProps> = ({
             modifiedTime: modifiedDate,
             publishedTime: createdDate,
             tags: post.tags.map(tag => tag.name)
-          }
+          },
+          images: [
+            {
+              url: `https://og-generator.now.sh/?title=${encodeURIComponent(post.title)}`,
+              width: 1280,
+              height: 680,
+              alt: post.title
+            }
+          ]
         }}
       />
       <HomeBackground>

@@ -80,7 +80,15 @@ const IndexPage: React.FC<IndexPageProps> = ({
         description='InkoHXのブログです。適当になんか技術的なこと中心に書いてます。'
         openGraph={{
           description: '技術的なことについてInkoHXが色々書いているサイト',
-          title: 'ホーム'
+          title: 'ホーム',
+          images: [
+            {
+              url: `https://og-generator.now.sh/?title=${encodeURIComponent('InkoHX Blog')}`,
+              width: 1280,
+              height: 680,
+              alt: 'InkoHX Blog'
+            }
+          ]
         }}
       />
       <HomeBackground>

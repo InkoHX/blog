@@ -42,7 +42,15 @@ const PostsPage: React.FC<PostsPageProps> = ({
         openGraph={{
           type: 'website',
           title: '記事一覧',
-          description: 'InkoHXがブログに投稿した記事の一覧ページ'
+          description: 'InkoHXがブログに投稿した記事の一覧ページ',
+          images: [
+            {
+              url: `https://og-generator.now.sh/?title=${encodeURIComponent('記事一覧')}`,
+              width: 1280,
+              height: 680,
+              alt: '記事一覧'
+            }
+          ]
         }}
       />
       <HomeBackground>

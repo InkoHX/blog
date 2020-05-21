@@ -38,7 +38,15 @@ const PostsPage: React.FC<TagsPageProps> = ({
         openGraph={{
           type: 'website',
           title: 'タグ一覧',
-          description: 'InkoHXのブログに存在するタグの一覧'
+          description: 'InkoHXのブログに存在するタグの一覧',
+          images: [
+            {
+              url: `https://og-generator.now.sh/?title=${encodeURIComponent('タグ一覧')}`,
+              width: 1280,
+              height: 680,
+              alt: 'タグ一覧'
+            }
+          ]
         }}
       />
       <HomeBackground>
