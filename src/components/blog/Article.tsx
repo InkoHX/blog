@@ -15,4 +15,9 @@ export const Article = styled(Paper)`
   a:visited {
     color: #90caf9;
   }
+
+  img {
+    width: 50%;
+    height: 50%;
+  }
 `.withComponent('article')
