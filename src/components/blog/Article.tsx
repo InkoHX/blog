@@ -17,7 +17,9 @@ export const Article = styled(Paper)`
   }
 
   img {
-    width: 50%;
-    height: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
   }
 `.withComponent('article')
