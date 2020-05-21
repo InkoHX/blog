@@ -7,7 +7,6 @@ Visual Studio Code は Web技術 を使用して作られた無料の高性能�
  [TypeScript](/tags/typescript) や [JavaScript](/tags/javascript) のサポートがとても良く、愛用している。
 
 - 内部は[Electron](/tags/electron)を使用している
-- Remote Development
 - デバッグ機能
 - GUIでGitを管理できる
 - 拡張機能でどんどん拡張できる
@@ -27,7 +26,7 @@ Visual Studio Code は Web技術 を使用して作られた無料の高性能�
 **VS Code** と書く。
 
 - [公式ツイッター](https://twitter.com/code)がそのように呼んでいる
-- **VSCode** と書く人もいるそう
+- **VSCode** と書く人もいるそうだが、**VS Code**と呼ぶほうが正しい
 
 # IDEではない
 
