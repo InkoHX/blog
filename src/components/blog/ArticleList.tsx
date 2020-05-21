@@ -47,8 +47,10 @@ export const ArticleList: React.FC<ArticleListProps> = ({
     <TableContainerInner>
       <Table>
         <TableHead>
-          <TableCell>{type === 'tag' ? 'タグ' : '記事'}</TableCell>
-          <TableCell>説明</TableCell>
+          <TableRow>
+            <TableCell>{type === 'tag' ? 'タグ' : '記事'}</TableCell>
+            <TableCell>説明</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {rows}
