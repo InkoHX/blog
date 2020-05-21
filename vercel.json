@@ -1,0 +1,18 @@
+{
+  "routes": [
+    {
+      "src": "/style/(.*)",
+      "headers": {
+        "Cache-Control": "max-age=31536000"
+      },
+      "dest": "/style/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "headers": {
+        "Cache-Control": "max-age=31536000"
+      },
+      "dest": "/images/$1"
+    }
+  ]
+}
