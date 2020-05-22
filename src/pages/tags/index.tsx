@@ -1,15 +1,13 @@
-import { Typography } from '@material-ui/core'
 import { OpenInNew } from '@material-ui/icons'
 import MaterialTable from 'material-table'
 import { GetStaticProps } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { HomeBackground } from '../../components'
 import { getAllTags, Tag } from '../../lib'
 import { tableIcons, tableLocales } from '../../lib/material-table'
-import { NextSeo } from 'next-seo'
 
 type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
 
@@ -49,9 +47,6 @@ const PostsPage: React.FC<TagsPageProps> = ({
           ]
         }}
       />
-      <HomeBackground>
-        <Typography variant='h4' component='h1'>タグ一覧 - InkoHX Blog</Typography>
-      </HomeBackground>
       <Table>
         <MaterialTable
           columns={[
