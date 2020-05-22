@@ -1,11 +1,10 @@
-import { Typography } from '@material-ui/core'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { Article, ArticleFooter, ArticleHeader, ArticleMain, HomeBackground } from '../../components'
+import { Article, ArticleFooter, ArticleHeader, ArticleMain } from '../../components'
 import { getAllPosts, getAllTags, Post, TagMetadata } from '../../lib'
 import { internalLinkClickHandler } from '../../lib/router'
 
@@ -58,9 +57,6 @@ const PostPage: React.FC<PostProps> = ({
           ]
         }}
       />
-      <HomeBackground>
-        <Typography variant='h5' component='p'>{post.title} - InkoHX blog</Typography>
-      </HomeBackground>
       <Article>
         <ArticleHeader
           modifiedTime={post.modifiedDate}
