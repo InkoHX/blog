@@ -32,9 +32,10 @@ const App = (props: AppProps): JSX.Element => {
       />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-        <link rel="manifest" href="/manifest.json" />
         <meta name='theme-color' content='#515151' />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link rel='apple-touch-icon' sizes='192x192' href='/images/icons/icon-192x192.png' />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <StylesProvider injectFirst>
