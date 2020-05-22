@@ -7,17 +7,21 @@ const AppBarTitle = styled(Typography)`
   padding-left: 10px;
 `
 
+const MaterialAppBarInner = styled(MaterialAppBar)`
+  width: 100%;
+`
+
 export const AppBar: React.FC = () => {
   const trigger = useScrollTrigger()
 
   return (
     <Slide appear={false} direction='down' in={!trigger}>
-      <MaterialAppBar color='inherit'>
+      <MaterialAppBarInner color='inherit'>
         <Toolbar>
           <AppMenuIcon />
           <AppBarTitle variant='h6' variantMapping={{ h6: 'p' }}>InkoHX Blog</AppBarTitle>
         </Toolbar>
-      </MaterialAppBar>
+      </MaterialAppBarInner>
     </Slide>
   )
 }
