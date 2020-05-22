@@ -9,7 +9,6 @@ import styled from 'styled-components'
 import { getAllPosts, getAllTags, Post, Tag } from '../../lib'
 import { tableIcons, tableLocales } from '../../lib/material-table'
 
-
 type PickedPost = Pick<Post, 'description' | 'fileName' | 'title'>
 
 type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
