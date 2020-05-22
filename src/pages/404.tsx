@@ -1,4 +1,5 @@
 import { Typography } from '@material-ui/core'
+import * as React from 'react'
 import styled from 'styled-components'
 
 const ErrorPageContainer = styled.div`
