@@ -6,7 +6,7 @@ import styled from 'styled-components'
 export interface ArticleItem {
   fileName: string
   title: string
-  description: string,
+  description: string
   modifiedDate: number
 }
 
