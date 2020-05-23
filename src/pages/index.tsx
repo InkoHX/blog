@@ -1,7 +1,6 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
-import styled from 'styled-components'
 
 import { ArticleItem, ArticleList } from '../components'
 import { getAllPosts, getAllTags } from '../lib'
@@ -11,15 +10,7 @@ interface IndexPageProps {
   posts: ArticleItem[]
 }
 
-const ArticleElement = styled.div`
-  margin: auto 50px;
-
-  @media screen and (max-width: 900px) {
-    margin: auto 5px;
-  }
-`
-
-const IndexPage: React.FC<IndexPageProps> = ({
+const IndexPage: NextPage<IndexPageProps> = ({
   posts,
   tags
 }) => {
@@ -41,10 +32,8 @@ const IndexPage: React.FC<IndexPageProps> = ({
           ]
         }}
       />
-      <ArticleElement>
-        <ArticleList type='post' items={posts} />
-        <ArticleList type='tag' items={tags} />
-      </ArticleElement>
+      <ArticleList type='post' items={posts} />
+      <ArticleList type='tag' items={tags} />
     </React.Fragment>
   )
 }
@@ -56,7 +45,8 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
       return {
         fileName: tag.fileName,
         description: tag.description,
-        title: tag.name
+        title: tag.name,
+        modifiedDate: tag.modifiedDate.valueOf()
       }
     }))
   const posts = await getAllPosts()
@@ -65,7 +55,8 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
       return {
         fileName: post.fileName,
         description: post.description,
-        title: post.title
+        title: post.title,
+        modifiedDate: post.modifiedDate.valueOf()
       }
     }))
 
