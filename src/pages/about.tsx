@@ -14,15 +14,15 @@ const TextContainer = styled.div`
 const AboutBlog: React.FC = () => (
   <TextContainer>
     <Typography gutterBottom component='h2' variant='h5'>このブログについて</Typography>
-      <Typography
-        
-        variant='body1'
-        
-      >
-        InkoHX Blog は Next.js を使用して作られた自作のブログです。InkoHXが手にしているノウハウをここに共有する感じで書いていきたいと思います。
-        それとWebに弱いのでまだまだ設計が安定していませんが、これからも頑張って開発していきます！
-        それと、このブログはオープンソースで開発されており、誰でも自由に使用でき、貢献することができます。不具合や良い提案があれば遠慮せずGitHubでissuesやPRを立ててください！
-        リポジトリはこのブログの一番下にあるフッターにあるリンクから飛ぶことが可能です。
+    <Typography
+
+      variant='body1'
+
+    >
+      InkoHX Blog は Next.js を使用して作られた自作のブログです。InkoHXが手にしているノウハウをここに共有する感じで書いていきたいと思います。
+      それとWebに弱いのでまだまだ設計が安定していませんが、これからも頑張って開発していきます！
+      それと、このブログはオープンソースで開発されており、誰でも自由に使用でき、貢献することができます。不具合や良い提案があれば遠慮せずGitHubでissuesやPRを立ててください！
+      リポジトリはこのブログの一番下にあるフッターにあるリンクから飛ぶことが可能です。
       </Typography>
   </TextContainer>
 )
@@ -45,8 +45,8 @@ const PWA: React.FC = () => (
   <TextContainer>
     <Typography gutterBottom component='h2' variant='h5'>PWA対応</Typography>
     <Typography
-    component='p'
-    variant='body1'
+      component='p'
+      variant='body1'
     >
       このサイトは PWA (Progressive Web Application) に対応しており、スマホやデスクトップにこのサイトをホームに配置してアプリのように扱うことが可能です。
       素早くこのサイトを見ることもできるので、気になったら是非試してみてください。
