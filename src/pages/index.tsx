@@ -2,12 +2,12 @@ import { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import * as React from 'react'
 
-import { ArticleItem, ArticleList } from '../components'
+import { ArticleList, ArticlePostItem, ArticleTagItem } from '../components'
 import { getAllPosts, getAllTags } from '../lib'
 
 interface IndexPageProps {
-  tags: ArticleItem[]
-  posts: ArticleItem[]
+  tags: ArticleTagItem[]
+  posts: ArticlePostItem[]
 }
 
 const IndexPage: NextPage<IndexPageProps> = ({
@@ -32,8 +32,8 @@ const IndexPage: NextPage<IndexPageProps> = ({
           ]
         }}
       />
-      <ArticleList type='post' items={posts} />
-      <ArticleList type='tag' items={tags} />
+      <ArticleList type='posts' items={posts} />
+      <ArticleList type='tags' items={tags} />
     </React.Fragment>
   )
 }
@@ -41,7 +41,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
 export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
   const tags = await getAllTags()
     .then(tags => tags.slice(0, 9))
-    .then(tags => tags.map<ArticleItem>(tag => {
+    .then(tags => tags.map<ArticleTagItem>(tag => {
       return {
         fileName: tag.fileName,
         description: tag.description,
@@ -51,9 +51,9 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
     }))
   const posts = await getAllPosts()
     .then(posts => posts.slice(0, 9))
-    .then(posts => posts.map<ArticleItem>(post => {
+    .then(posts => posts.map<ArticlePostItem>(post => {
       return {
-        fileName: post.fileName,
+        hash: post.hash,
         description: post.description,
         title: post.title,
         modifiedDate: post.modifiedDate.valueOf()
