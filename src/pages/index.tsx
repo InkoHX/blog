@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
       }
     }))
   const posts = await getAllPosts()
-    .then(posts => posts.slice(0, 9))
+    .then(posts => posts.slice(0, 8))
     .then(posts => posts.map<ArticlePostItem>(post => {
       return {
         hash: post.hash,
