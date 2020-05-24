@@ -1,7 +1,7 @@
-import { NextPage } from "next";
+import { Typography } from '@material-ui/core'
+import { NextPage } from 'next'
 import * as React from 'react'
-import { Typography } from "@material-ui/core";
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const AboutContainer = styled.div`
   margin: 50px auto;
