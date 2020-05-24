@@ -17,6 +17,16 @@ export const stringifyHTML = (content: string): string => markdownIt()
 
 export const glob = (pattern: string): Promise<string[]> => globAsync(pattern, { cwd: process.cwd() })
 
+export const chunkArray = <T extends any[]>(array: T, size: number): T[] => array
+  .reduce(
+    (previousValue, _currentValue, currentIndex) => currentIndex % size
+      ? previousValue
+      : [
+        ...previousValue,
+        array.slice(currentIndex, currentIndex + size)
+      ], []
+  )
+
 export const parseMarkdownFile = async (path: string): Promise<MarkdownFile> => {
   const data = matter(await fs.readFile(path, 'utf8'))
   const html = stringifyHTML(data.content)
