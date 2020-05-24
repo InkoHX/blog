@@ -16,7 +16,7 @@ export interface PostTag extends Omit<TagMetadata, 'description'> {
   fileName: string
 }
 
-interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'createdDate' | 'tags'> {
+interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'createdDate' | 'tags' | 'hash'> {
   modifiedDate: number
   createdDate: number
   tags: PostTag[]
@@ -72,7 +72,7 @@ const PostPage: React.FC<PostProps> = ({
 
 export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   const post = await getAllPosts()
-    .then(posts => posts.find(post => post.fileName === params?.id))
+    .then(posts => posts.find(post => post.hash === params?.id))
 
   if (!post) throw new Error('Post is not found.')
 
@@ -106,7 +106,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .then(posts => posts.map(post => {
       return {
         params: {
-          id: post.fileName
+          id: post.hash
         }
       }
     }))
