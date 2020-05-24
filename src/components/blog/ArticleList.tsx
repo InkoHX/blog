@@ -37,7 +37,7 @@ const ArticleListContainer = styled.div`
 
 const getArticlePostItems = (item: ArticlePostItem): Omit<ArticlePostItem, 'hash' | 'modifiedDate'> & Record<'as' | 'href' | 'modifiedDate', string> => {
   return {
-    href: '/posts/id',
+    href: '/posts/[id]',
     as: `/posts/${item.hash}`,
     title: item.title,
     description: item.description,
