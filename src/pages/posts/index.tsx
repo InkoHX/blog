@@ -1,17 +1,15 @@
-import { Typography } from '@material-ui/core'
 import { OpenInNew } from '@material-ui/icons'
 import MaterialTable from 'material-table'
 import { GetStaticProps } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { HomeBackground } from '../../components'
 import { getAllPosts, getAllTags, Post, Tag } from '../../lib'
 import { tableIcons, tableLocales } from '../../lib/material-table'
-import { NextSeo } from 'next-seo'
 
-type PickedPost = Pick<Post, 'description' | 'fileName' | 'title'>
+type PickedPost = Pick<Post, 'description' | 'title' | 'hash'>
 
 type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
 
@@ -53,9 +51,6 @@ const PostsPage: React.FC<PostsPageProps> = ({
           ]
         }}
       />
-      <HomeBackground>
-        <Typography variant='h4' component='h1'>記事一覧 - InkoHX Blog</Typography>
-      </HomeBackground>
       <Table>
         <MaterialTable
           columns={[
@@ -67,7 +62,7 @@ const PostsPage: React.FC<PostsPageProps> = ({
             return {
               title: post.title,
               description: post.description,
-              fileName: post.fileName,
+              hash: post.hash,
               tags: post.tags.map(tag => tag.name).join(' ') || 'なし'
             }
           })}
@@ -76,7 +71,7 @@ const PostsPage: React.FC<PostsPageProps> = ({
               tooltip: '見る',
               // eslint-disable-next-line react/display-name
               icon: () => <OpenInNew />,
-              onClick: (_event, data) => router.push('/posts/[id]', `/posts/${Array.isArray(data) ? data.shift()?.fileName ?? '' : data.fileName}`)
+              onClick: (_event, data) => router.push('/posts/[id]', `/posts/${Array.isArray(data) ? data.shift()?.hash ?? '' : data.hash}`)
             }
           ]}
           options={{
@@ -102,7 +97,7 @@ export const getStaticProps: GetStaticProps<Readonly<PostsPageProps>> = async ()
       return {
         title: post.title,
         description: post.description,
-        fileName: post.fileName,
+        hash: post.hash,
         tags: tags
           .filter(tag => post.tags.includes(tag.name))
           .map<PickedTags>(tag => {

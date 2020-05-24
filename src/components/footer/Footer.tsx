@@ -82,6 +82,11 @@ export const Footer: React.FC = () => {
     items: [
       {
         type: 'internal',
+        name: 'このブログについて',
+        href: '/about'
+      },
+      {
+        type: 'internal',
         name: '記事一覧',
         href: '/posts'
       },

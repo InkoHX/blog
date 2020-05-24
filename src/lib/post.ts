@@ -1,4 +1,5 @@
 import { glob, parseMarkdownFile, MarkdownFile } from './util'
+import { createHash } from 'crypto'
 
 export interface PostMetadata {
   tags: unknown[]
@@ -8,6 +9,7 @@ export interface PostMetadata {
 
 export interface Post extends MarkdownFile, Omit<PostMetadata, 'tags'> {
   tags: string[]
+  hash: string
 }
 
 export const getAllPostPaths = (): Promise<string[]> => glob('content/posts/**/*.md')
@@ -33,6 +35,7 @@ export const getPost = async (path: string): Promise<Post | null> => {
     filePath: file.filePath,
     html: file.html,
     title: metadata.title,
+    hash: createHash('md5').update(metadata.title, 'utf8').digest('hex'),
     tags
   }
 }
@@ -57,6 +60,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
         matterFile: value.matterFile,
         fileName: value.fileName,
         filePath: value.filePath,
+        hash: createHash('md5').update(metadata.title, 'utf8').digest('hex'),
         tags
       }
     })

@@ -7,7 +7,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
-import { Footer, AppBar } from '../components'
+import { Footer, AppBar, Container } from '../components'
 import { defaultTheme } from '../styles'
 
 const App = (props: AppProps): JSX.Element => {
@@ -32,7 +32,10 @@ const App = (props: AppProps): JSX.Element => {
       />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='theme-color' content='#515151' />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link rel='apple-touch-icon' sizes='192x192' href='/images/icons/icon-192x192.png' />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <StylesProvider injectFirst>
@@ -40,7 +43,9 @@ const App = (props: AppProps): JSX.Element => {
           <StyledThemeProvider theme={defaultTheme}>
             <CssBaseline />
             <AppBar />
-            <Component {...pageProps} />
+            <Container>
+              <Component {...pageProps} />
+            </Container>
             <Footer />
           </StyledThemeProvider>
         </MaterialThemeProvider>

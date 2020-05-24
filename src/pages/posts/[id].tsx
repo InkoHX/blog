@@ -1,11 +1,10 @@
-import { Typography } from '@material-ui/core'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { Article, ArticleFooter, ArticleHeader, ArticleMain, HomeBackground } from '../../components'
+import { Article, ArticleFooter, ArticleHeader, ArticleMain } from '../../components'
 import { getAllPosts, getAllTags, Post, TagMetadata } from '../../lib'
 import { internalLinkClickHandler } from '../../lib/router'
 
@@ -17,7 +16,7 @@ export interface PostTag extends Omit<TagMetadata, 'description'> {
   fileName: string
 }
 
-interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'createdDate' | 'tags'> {
+interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'createdDate' | 'tags' | 'hash'> {
   modifiedDate: number
   createdDate: number
   tags: PostTag[]
@@ -58,9 +57,6 @@ const PostPage: React.FC<PostProps> = ({
           ]
         }}
       />
-      <HomeBackground>
-        <Typography variant='h5' component='p'>{post.title} - InkoHX blog</Typography>
-      </HomeBackground>
       <Article>
         <ArticleHeader
           modifiedTime={post.modifiedDate}
@@ -76,7 +72,7 @@ const PostPage: React.FC<PostProps> = ({
 
 export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   const post = await getAllPosts()
-    .then(posts => posts.find(post => post.fileName === params?.id))
+    .then(posts => posts.find(post => post.hash === params?.id))
 
   if (!post) throw new Error('Post is not found.')
 
@@ -110,7 +106,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .then(posts => posts.map(post => {
       return {
         params: {
-          id: post.fileName
+          id: post.hash
         }
       }
     }))
