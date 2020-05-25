@@ -3,6 +3,7 @@
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "stylelint.packageManager": "yarn",
+  "textlint.run": "onSave",
   "files.associations": {
     ".textlintrc": "json"
   }
