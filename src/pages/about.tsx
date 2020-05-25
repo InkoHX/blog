@@ -1,5 +1,6 @@
 import { Typography } from '@material-ui/core'
 import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -56,12 +57,30 @@ const PWA: React.FC = () => (
 
 const AboutPage: NextPage = () => {
   return (
-    <AboutContainer>
-      <Typography gutterBottom component='h1' variant='h4' align='center'>InkoHX Blog</Typography>
-      <AboutBlog />
-      <Issues />
-      <PWA />
-    </AboutContainer>
+    <React.Fragment>
+      <NextSeo
+        description='InkoHX Blog について'
+        title='InkoHX Blog について'
+        openGraph={{
+          description: 'InkoHX Blogについて',
+          title: 'InkoHX Blogについて',
+          images: [
+            {
+              url: `https://og-generator.now.sh/?title=${encodeURIComponent('InkoHX Blogについて')}`,
+              width: 1280,
+              height: 680,
+              alt: 'InkoHX Blog'
+            }
+          ]
+        }}
+      />
+      <AboutContainer>
+        <Typography gutterBottom component='h1' variant='h4' align='center'>InkoHX Blog</Typography>
+        <AboutBlog />
+        <Issues />
+        <PWA />
+      </AboutContainer>
+    </React.Fragment>
   )
 }
 
