@@ -40,7 +40,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
 
 export const getStaticProps: GetStaticProps<IndexPageProps> = async () => {
   const tags = await getAllTags()
-    .then(tags => tags.slice(0, 8))
+    .then(tags => tags.slice(0, 9))
     .then(tags => tags.map<ArticleTagItem>(tag => {
       return {
         fileName: tag.fileName,
