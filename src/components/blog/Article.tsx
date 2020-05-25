@@ -8,7 +8,8 @@ export const Article = styled(Paper)`
   background-color: ${props => props.theme.palette.background.paper};
 
   @media screen and (max-width: 900px) {
-    margin: 5px;
+    margin: 15px 0;
+    padding: 10px 5px;
   }
 
   a,
