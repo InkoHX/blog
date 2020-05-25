@@ -1,46 +1,67 @@
-import { OpenInNew } from '@material-ui/icons'
-import MaterialTable from 'material-table'
-import { GetStaticProps } from 'next'
+import { CardActionArea, CardContent, CardHeader, Grid, Typography } from '@material-ui/core'
+import { Pagination, PaginationItem } from '@material-ui/lab'
 import { NextSeo } from 'next-seo'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getAllPosts, getAllTags, Post, Tag } from '../../lib'
-import { tableIcons, tableLocales } from '../../lib/material-table'
+import { ArticleListContainer, CardInner } from '../../components'
+import { chunkArray, getAllPosts, Post } from '../../lib'
 
-type PickedPost = Pick<Post, 'description' | 'title' | 'hash'>
-
-type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
-
-type Posts = (PickedPost & { tags: readonly PickedTags[] })
+import type { GetStaticProps, NextPage } from 'next'
+type Posts = Pick<Post, 'hash' | 'title' | 'description'> & Record<'modifiedDate', number>
 
 interface PostsPageProps {
-  posts: readonly Posts[]
+  posts: readonly Posts[][]
 }
 
-const Table = styled.div`
-  padding: 80px 50px;
-
-  @media screen and (max-width: 900px) {
-    padding: 80px 10px;
+const PaginationInner = styled(Pagination)`
+  ul {
+    margin: 30px auto;
+    justify-content: center;
   }
 `
 
-const PostsPage: React.FC<PostsPageProps> = ({
+const parseInteger = (value?: string | string[]): number => value && !Array.isArray(value)
+  ? parseInt(value) <= 0
+    ? 1
+    : parseInt(value)
+  : 1
+
+const TagsPage: NextPage<PostsPageProps> = ({
   posts
 }) => {
   const router = useRouter()
+  const [currentPage, setCurrentPage] = React.useState(parseInteger(router.query.page))
+
+  React.useEffect(() => setCurrentPage(parseInteger(router.query.page)), [router.query.page])
+
+  const postCards = posts[currentPage - 1].map(post => (
+    <Grid key={post.description} item xs={12} sm={4}>
+      <NextLink href='/posts/[id]' as={`/posts/${post.hash}`} passHref>
+        <CardActionArea>
+          <CardInner>
+            <CardHeader subheader={Intl.DateTimeFormat('ja-JP').format(post.modifiedDate)} />
+            <CardContent>
+              <Typography gutterBottom variant='h6' component='h2'>{post.title}</Typography>
+              <Typography variant='body1' component='p'>{post.description}</Typography>
+            </CardContent>
+          </CardInner>
+        </CardActionArea>
+      </NextLink>
+    </Grid>
+  ))
 
   return (
     <React.Fragment>
       <NextSeo
         title='記事一覧'
-        description='InkoHXがブログに投稿した記事の一覧ページ'
+        description='InkoHXのブログに存在する記事一覧'
         openGraph={{
           type: 'website',
           title: '記事一覧',
-          description: 'InkoHXがブログに投稿した記事の一覧ページ',
+          description: 'InkoHXのブログに存在する記事一覧',
           images: [
             {
               url: `https://og-generator.now.sh/?title=${encodeURIComponent('記事一覧')}`,
@@ -51,64 +72,37 @@ const PostsPage: React.FC<PostsPageProps> = ({
           ]
         }}
       />
-      <Table>
-        <MaterialTable
-          columns={[
-            { title: 'タイトル', field: 'title' },
-            { title: '説明', field: 'description' },
-            { title: 'タグ', field: 'tags', sorting: false }
-          ]}
-          data={posts.map(post => {
-            return {
-              title: post.title,
-              description: post.description,
-              hash: post.hash,
-              tags: post.tags.map(tag => tag.name).join(' ') || 'なし'
-            }
-          })}
-          actions={[
-            {
-              tooltip: '見る',
-              // eslint-disable-next-line react/display-name
-              icon: () => <OpenInNew />,
-              onClick: (_event, data) => router.push('/posts/[id]', `/posts/${Array.isArray(data) ? data.shift()?.hash ?? '' : data.hash}`)
-            }
-          ]}
-          options={{
-            search: true,
-            pageSizeOptions: [],
-            pageSize: 10,
-            showTitle: false,
-            draggable: false,
-            actionsColumnIndex: 1
-          }}
-          icons={tableIcons}
-          localization={tableLocales}
-        />
-      </Table>
+      <ArticleListContainer>
+        <Grid container spacing={3} alignItems='center' justify='center'>
+          {postCards}
+        </Grid>
+      </ArticleListContainer>
+      <PaginationInner
+        count={posts.length}
+        page={currentPage}
+        showFirstButton
+        showLastButton
+        renderItem={params => (
+          <NextLink href={{ query: { page: params.page } }} shallow passHref>
+            <PaginationItem {...params} />
+          </NextLink>
+        )}
+      />
     </React.Fragment>
   )
 }
 
 export const getStaticProps: GetStaticProps<Readonly<PostsPageProps>> = async () => {
-  const tags = await getAllTags()
   const posts = await getAllPosts()
     .then(posts => posts.map<Posts>(post => {
       return {
-        title: post.title,
         description: post.description,
         hash: post.hash,
-        tags: tags
-          .filter(tag => post.tags.includes(tag.name))
-          .map<PickedTags>(tag => {
-          return {
-            fileName: tag.fileName,
-            name: tag.name,
-            description: tag.description
-          }
-        })
+        modifiedDate: post.modifiedDate.valueOf(),
+        title: post.title
       }
     }))
+    .then(posts => chunkArray(posts, 9))
 
   return {
     props: {
@@ -117,4 +111,4 @@ export const getStaticProps: GetStaticProps<Readonly<PostsPageProps>> = async ()
   }
 }
 
-export default PostsPage
+export default TagsPage
