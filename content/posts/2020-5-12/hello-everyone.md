@@ -8,9 +8,8 @@ ReactとNext.js使ってブログみたいなのを作ってみました。
 
 - 記事とタグはGitHubで**Markdown**として管理しています
 - 今後デザインの修正等を行っていきもっと使いやすくする予定
-- Lighthouseのスコアもなかなかいい感じ
-- PWAにも対応したい
-- RSSも配信したい
+- Lighthouseのチェック項目を全て通過
+- PWA対応
 
 ## 記事とタグの管理について
 
@@ -29,9 +28,9 @@ GitHubで管理しています。
 
 ## Lighthouse
 
-満点です。
+全てのチェック項目をクリアしました！
 
-![Lighthouse](/images/posts/2020-5-12/hello-everyone/lighthouse.png)
+![Lighthouse](/images/posts/2020-5-12/hello-everyone/passed-all-lighthouse-checklists.png)
 
 ## OG画像
 
