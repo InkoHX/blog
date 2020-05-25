@@ -3,14 +3,18 @@ import { StylesProvider } from '@material-ui/styles'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import * as React from 'react'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 import { Footer, AppBar, Container } from '../components'
 import { defaultTheme } from '../styles'
 
-const App = (props: AppProps): JSX.Element => {
+const ContainerInner = styled(Container)`
+  min-height: 100vh;
+`
+
+const App: React.FC<AppProps> = (props) => {
   const { Component, pageProps } = props
   const router = useRouter()
 
@@ -43,9 +47,9 @@ const App = (props: AppProps): JSX.Element => {
           <StyledThemeProvider theme={defaultTheme}>
             <CssBaseline />
             <AppBar />
-            <Container>
+            <ContainerInner>
               <Component {...pageProps} />
-            </Container>
+            </ContainerInner>
             <Footer />
           </StyledThemeProvider>
         </MaterialThemeProvider>

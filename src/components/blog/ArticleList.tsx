@@ -27,11 +27,11 @@ export interface ArticleTagListProps {
 
 export type ArticleListProps = ArticlePostListProps | ArticleTagListProps
 
-const CardInner = styled(Card)`
+export const CardInner = styled(Card)`
   height: 230px;
 `
 
-const ArticleListContainer = styled.div`
+export const ArticleListContainer = styled.div`
   margin: 30px auto;
 `
 
