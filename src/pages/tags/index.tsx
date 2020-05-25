@@ -1,32 +1,57 @@
-import { OpenInNew } from '@material-ui/icons'
-import MaterialTable from 'material-table'
-import { GetStaticProps } from 'next'
+import { CardActionArea, CardContent, CardHeader, Grid, Typography } from '@material-ui/core'
+import { Pagination, PaginationItem } from '@material-ui/lab'
+import type { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { getAllTags, Tag } from '../../lib'
-import { tableIcons, tableLocales } from '../../lib/material-table'
+import { ArticleListContainer, CardInner } from '../../components'
+import { chunkArray, getAllTags, Tag } from '../../lib'
 
-type PickedTags = Pick<Tag, 'fileName' | 'name' | 'description'>
+type Tags = Pick<Tag, 'fileName' | 'name' | 'description'> & Record<'modifiedDate', number>
 
 interface TagsPageProps {
-  tags: readonly PickedTags[]
+  tags: readonly Tags[][]
 }
 
-const Table = styled.div`
-  padding: 80px 50px;
-
-  @media screen and (max-width: 900px) {
-    padding: 80px 10px;
+const PaginationInner = styled(Pagination)`
+  ul {
+    margin: 30px auto;
+    justify-content: center;
   }
 `
 
-const PostsPage: React.FC<TagsPageProps> = ({
+const parseInteger = (value?: string | string[]) => value && !Array.isArray(value)
+  ? parseInt(value) <= 0
+    ? 1
+    : parseInt(value)
+  : 1
+
+const TagsPage: NextPage<TagsPageProps> = ({
   tags
 }) => {
   const router = useRouter()
+  const [currentPage, setCurrentPage] = React.useState(parseInteger(router.query.page))
+
+  React.useEffect(() => setCurrentPage(parseInteger(router.query.page)), [router.query.page])
+
+  const tagCards = tags[currentPage - 1].map(tag => (
+    <Grid key={tag.description} item xs={12} sm={4}>
+      <NextLink href='/tags/[id]' as={`/tags/${tag.fileName}`} passHref>
+        <CardActionArea>
+          <CardInner>
+            <CardHeader subheader={Intl.DateTimeFormat('ja-JP').format(tag.modifiedDate)} />
+            <CardContent>
+              <Typography gutterBottom variant='h6' component='h2'>{tag.name}</Typography>
+              <Typography variant='body1' component='p'>{tag.description}</Typography>
+            </CardContent>
+          </CardInner>
+        </CardActionArea>
+      </NextLink>
+    </Grid>
+  ))
 
   return (
     <React.Fragment>
@@ -47,52 +72,37 @@ const PostsPage: React.FC<TagsPageProps> = ({
           ]
         }}
       />
-      <Table>
-        <MaterialTable
-          columns={[
-            { title: '名前', field: 'name' },
-            { title: '説明', field: 'description' }
-          ]}
-          data={tags.map(tag => {
-            return {
-              name: tag.name,
-              description: tag.description,
-              fileName: tag.fileName
-            }
-          })}
-          actions={[
-            {
-              tooltip: '見る',
-              // eslint-disable-next-line react/display-name
-              icon: () => <OpenInNew />,
-              onClick: (_event, data) => router.push('/tags/[id]', `/tags/${Array.isArray(data) ? data.shift()?.fileName ?? '' : data.fileName}`)
-            }
-          ]}
-          options={{
-            search: true,
-            pageSizeOptions: [],
-            pageSize: 10,
-            showTitle: false,
-            draggable: false,
-            actionsColumnIndex: 1
-          }}
-          icons={tableIcons}
-          localization={tableLocales}
-        />
-      </Table>
+      <ArticleListContainer>
+        <Grid container spacing={3} alignItems='center' justify='center'>
+          {tagCards}
+        </Grid>
+      </ArticleListContainer>
+      <PaginationInner
+        count={tags.length}
+        page={currentPage}
+        showFirstButton
+        showLastButton
+        renderItem={params => (
+          <NextLink href={{ query: { page: params.page } }} shallow passHref>
+            <PaginationItem {...params} />
+          </NextLink>
+        )}
+      />
     </React.Fragment>
   )
 }
 
 export const getStaticProps: GetStaticProps<Readonly<TagsPageProps>> = async () => {
   const tags = await getAllTags()
-    .then(tags => tags.map<PickedTags>(tag => {
+    .then(tags => tags.map<Tags>(tag => {
       return {
         description: tag.description,
         fileName: tag.fileName,
+        modifiedDate: tag.modifiedDate.valueOf(),
         name: tag.name
       }
     }))
+    .then(tags => chunkArray(tags, 9))
 
   return {
     props: {
@@ -101,4 +111,4 @@ export const getStaticProps: GetStaticProps<Readonly<TagsPageProps>> = async () 
   }
 }
 
-export default PostsPage
+export default TagsPage

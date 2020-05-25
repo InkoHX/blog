@@ -17,6 +17,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.54",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
     "markdown-it": "^11.0.0",
