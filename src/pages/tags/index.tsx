@@ -73,7 +73,7 @@ const TagsPage: NextPage<TagsPageProps> = ({
         }}
       />
       <ArticleListContainer>
-        <Typography gutterBottom component='h1' variant='h4' align='center'>記事一覧</Typography>
+        <Typography gutterBottom component='h1' variant='h4' align='center'>タグ一覧</Typography>
         <Grid container spacing={3} alignItems='center' justify='center'>
           {tagCards}
         </Grid>
