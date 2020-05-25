@@ -32,7 +32,7 @@ Markdownからmarkdown-itを使用して変換されたHTMLは文字列で返っ
 
 解決方法はかなりゴリ押し感凄いです。
 
-```tsx
+```ts
 import * as React from 'react'
 import { NextRouter } from 'next/router'
 
@@ -55,17 +55,17 @@ export const internalLinkClickHandler = (event: React.MouseEvent<HTMLElement>, r
 }
 ```
 
-```tsx
+```ts
 <ArticleMain onClick={handleInternalLink} dangerouslySetInnerHTML={{ __html: tag.html }} />
 ```
 
 今後これは直さないといけない問題だと思ってます。かなり恥ずかしい><
 
-仕組みは`ArticleMain`でクリックイベントが起きたとき`internalLinkClickHandler`に引数を渡して、`ArticleMain`にある**aタグ**を`getElementsByTagName`で全部取得して、`for`で要素が入った配列を回し、クリックされた要素が**aタグ**であり、その**aタグ**に設定されている`href`のURLが内部リンクだったら、イベントをキャンセルし`router.push`で対象のページに飛ばすというもの
+仕組みは `ArticleMain` でクリックイベントが起きたとき `internalLinkClickHandler` に引数を渡して、`ArticleMain` にある**aタグ**を `getElementsByTagName` で全部取得して、`for` で要素が入った配列を回し、クリックされた要素が**aタグ**であり、その**aタグ**に設定されている `href` のURLが内部リンクだったら、イベントをキャンセルし `router.push` で対象のページに飛ばすというもの
 
 どうしてこうなってしまったのだろう... これは早く解決したいところ、何かいい案があればissuesやPR送ってほしいです。
 
-`2020/5/25`の時点ではこの方法で`dangerouslySetInnerHTML`に設定されているaタグの内部リンクを処理しています。
+`2020/5/25` の時点ではこの方法で `dangerouslySetInnerHTML` に設定されているaタグの内部リンクを処理しています。
 
 ## Next.jsを選んだ理由
 
@@ -109,7 +109,7 @@ Material UI とか styled-component を使わずに内蔵されている styled-
 
 ## Vercelを使用するとコマンドひとつでデプロイできる
 
-もともと**ZEIT Now**と言われていたサービスです。ついこの前会社の名前が[Vercel](/tags/vercel)に変わり、2021年1月1日で[npm](/tags/npm)パッケージの`now`のサポートが終了し、`vercel`というパッケージの方で更新が進むようです。この記事で気付いた人は今すぐ乗り換えたほうがいいでしょう (新しいコマンドに慣れるためにも)
+もともと**ZEIT Now**と言われていたサービスです。ついこの前会社の名前が[Vercel](/tags/vercel)に変わり、2021年1月1日で[npm](/tags/npm)パッケージの `now` のサポートが終了し、 `vercel` というパッケージの方で更新が進むようです。この記事で気付いた人は今すぐ乗り換えたほうがいいでしょう (新しいコマンドに慣れるためにも)
 
 - [公式のツイート](https://twitter.com/vercel/status/1262910242783932416?s=20)
 
@@ -117,18 +117,18 @@ Material UI とか styled-component を使わずに内蔵されている styled-
 
 このブログを開発するにあたって基本使用しているコマンドは以下のものだけです。
 
-- `vercel`または`vc`
-- `vercel dev`または`vc dev`
+- `vercel` または `vc`
+- `vercel dev` または `vc dev`
 
-`vercel`または`vc`でデプロイできます。フラグで`--prod`を付ければ本番環境にデプロイできます。
+`vercel` または `vc` でデプロイできます。フラグで `--prod` を付ければ本番環境にデプロイできます。
 
-ローカルで開発するときには`vercel dev`または`vc dev`を使用します。ローカルホストで開発用のサーバーを展開してくれます。ちなみにこのコマンドはまだベータだそうです。
+ローカルで開発するときには `vercel dev` または `vc dev` を使用します。ローカルホストで開発用のサーバーを展開してくれます。ちなみにこのコマンドはまだベータだそうです。
 
 ## ルーティングが楽
 
 [公式のドキュメント](https://nextjs.org/docs/routing/introduction)を見ると分かるのですが、めっちゃ楽です。
 
-特にめんどくさい設定を書くことなく、`pages`フォルダーにファイル名でぱぱっと決めるだけ！
+特にめんどくさい設定を書くことなく、`pages` フォルダーにファイル名でぱぱっと決めるだけ！
 
 ## デザインはマテリアルに
 
@@ -136,7 +136,7 @@ CSS書くのは苦手なので**Material UI**使いました! 少し手を加え
 
 ## PWAに対応
 
-PWAに対応するにあたって、`next-pwa`という**Zero Configuration**のプラグインを見つけたのでそれを使用しました。
+PWAに対応するにあたって、`next-pwa` という**Zero Configuration**のプラグインを見つけたのでそれを使用しました。
 
 - [NPM](https://www.npmjs.com/package/next-pwa)
 - [GitHub](https://github.com/shadowwalker/next-pwa)
