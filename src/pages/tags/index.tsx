@@ -23,7 +23,7 @@ const PaginationInner = styled(Pagination)`
   }
 `
 
-const parseInteger = (value?: string | string[]) => value && !Array.isArray(value)
+const parseInteger = (value?: string | string[]): number => value && !Array.isArray(value)
   ? parseInt(value) <= 0
     ? 1
     : parseInt(value)
