@@ -141,10 +141,10 @@ export const Footer: React.FC = () => {
         <FooterGridList {...social} />
       </GridInner>
       <Typography
-        variant='body1'
+        variant='body2'
         component='p'
       >
-        プログラム、コンテンツは<Typography color='inherit' component='a' href='https://github.com/InkoHX/blog/blob/master/LICENSE'>MITライセンス</Typography>に基づいてオープンソースプロジェクトとして公開されています。
+        このサイトはアクセス解析のために <Typography href='https://www.google.com/intl/ja/policies/privacy/partners/' component='a' color='inherit'>Google Analytics</Typography> を使用しています。
       </Typography>
     </FooterInner>
   )

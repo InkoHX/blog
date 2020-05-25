@@ -14,6 +14,25 @@ const ContainerInner = styled(Container)`
   min-height: 100vh;
 `
 
+const GATrackingScript: React.FC = () => {
+  if (process.env.NODE_ENV !== 'production') return null
+  if (!process.env.GA_TRACKING_ID) return null
+
+  return (
+    <React.Fragment>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`} />
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${process.env.GA_TRACKING_ID}');`
+      }} />
+    </React.Fragment>
+  )
+}
+
 const App: React.FC<AppProps> = (props) => {
   const { Component, pageProps } = props
   const router = useRouter()
@@ -40,6 +59,7 @@ const App: React.FC<AppProps> = (props) => {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel='apple-touch-icon' sizes='192x192' href='/images/icons/icon-192x192.png' />
         <link rel="manifest" href="/manifest.json" />
+        <GATrackingScript />
       </Head>
 
       <StylesProvider injectFirst>
