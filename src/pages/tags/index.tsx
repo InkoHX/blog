@@ -1,6 +1,5 @@
 import { CardActionArea, CardContent, CardHeader, Grid, Typography } from '@material-ui/core'
 import { Pagination, PaginationItem } from '@material-ui/lab'
-import type { GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
@@ -10,6 +9,7 @@ import styled from 'styled-components'
 import { ArticleListContainer, CardInner } from '../../components'
 import { chunkArray, getAllTags, Tag } from '../../lib'
 
+import type { GetStaticProps, NextPage } from 'next'
 type Tags = Pick<Tag, 'fileName' | 'name' | 'description'> & Record<'modifiedDate', number>
 
 interface TagsPageProps {
