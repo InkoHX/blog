@@ -33,6 +33,15 @@ const GATrackingScript: React.FC = () => {
   )
 }
 
+const GoogleAdSenseScript: React.FC = () => {
+  if (process.env.NODE_ENV !== 'production') return null
+  if (!process.env.GOOGLE_ADSENSE_ID) return null
+
+  return (
+    <script data-ad-client={process.env.GOOGLE_ADSENSE_ID} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+  )
+}
+
 const App: React.FC<AppProps> = (props) => {
   const { Component, pageProps } = props
   const router = useRouter()
@@ -60,6 +69,7 @@ const App: React.FC<AppProps> = (props) => {
         <link rel='apple-touch-icon' sizes='192x192' href='/images/icons/icon-192x192.png' />
         <link rel="manifest" href="/manifest.json" />
         <GATrackingScript />
+        <GoogleAdSenseScript />
       </Head>
 
       <StylesProvider injectFirst>
