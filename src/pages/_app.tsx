@@ -67,7 +67,7 @@ const ServiceWorkerUpdatePopup: React.FC = () => {
     <Snackbar
       anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
       open={isUpdate}
-      autoHideDuration={10000}
+      autoHideDuration={15000}
       onClose={() => setUpdate(false)}
     >
       <Alert
