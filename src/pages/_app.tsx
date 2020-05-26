@@ -1,13 +1,15 @@
-import { CssBaseline, ThemeProvider as MaterialThemeProvider } from '@material-ui/core'
+import { CssBaseline, IconButton, Snackbar, ThemeProvider as MaterialThemeProvider } from '@material-ui/core'
+import { Replay } from '@material-ui/icons'
+import { Alert, AlertTitle } from '@material-ui/lab'
 import { StylesProvider } from '@material-ui/styles'
+import { DefaultSeo } from 'next-seo'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
-import { DefaultSeo } from 'next-seo'
-import { useRouter } from 'next/router'
 
-import { Footer, AppBar, Container } from '../components'
+import { AppBar, Container, Footer } from '../components'
 import { defaultTheme } from '../styles'
 
 const ContainerInner = styled(Container)`
@@ -39,6 +41,50 @@ const GoogleAdSenseScript: React.FC = () => {
 
   return (
     <script data-ad-client={process.env.GOOGLE_ADSENSE_ID} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+  )
+}
+
+const ServiceWorkerUpdatePopup: React.FC = () => {
+  const [isUpdate, setUpdate] = React.useState(false)
+
+  React.useEffect(() => {
+    const workbox = window?.workbox
+
+    if (!workbox) return
+    if (!('serviceWorker' in navigator)) return
+
+    workbox.addEventListener('waiting', () => {
+      setUpdate(true)
+    })
+
+    workbox.addEventListener('controlling', () => window.location.reload())
+
+    workbox.register()
+      .catch(console.error)
+  })
+
+  return (
+    <Snackbar
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      open={isUpdate}
+      autoHideDuration={10000}
+      onClose={() => setUpdate(false)}
+    >
+      <Alert
+        severity='success'
+        action={
+          <IconButton
+            aria-label='更新'
+            onClick={() => window.workbox?.messageSW({ type: 'SKIP_WAITING' })}
+          >
+            <Replay />
+          </IconButton>
+        }
+      >
+        <AlertTitle>更新準備完了</AlertTitle>
+        サイトのコンテンツを更新する準備が完了しました！今すぐ更新しますか？
+      </Alert>
+    </Snackbar>
   )
 }
 
@@ -80,6 +126,7 @@ const App: React.FC<AppProps> = (props) => {
             <ContainerInner>
               <Component {...pageProps} />
             </ContainerInner>
+            <ServiceWorkerUpdatePopup />
             <Footer />
           </StyledThemeProvider>
         </MaterialThemeProvider>
