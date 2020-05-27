@@ -1,8 +1,8 @@
 ---
 name: Alternative JavaScript (AltJS)
 description: AltJSは「代替JavaScript言語」のことを指す。
-modifiedDate: 2020-05-27T08:42:32.000Z
-createdDate: 2020-05-27T08:42:32.000Z
+modifiedDate: 2020-05-27T10:12:57.000Z
+createdDate: 2020-05-27T10:12:57.000Z
 ---
 
 AltJSは「代替[JavaScript](/tags/javascript)言語」のことを指す。
