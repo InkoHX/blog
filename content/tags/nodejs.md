@@ -1,8 +1,8 @@
 ---
 name: Node.js
 description: V8を搭載したJavaScriptのランタイム
-modifiedDate: 2020-05-27T10:12:57.000Z
-createdDate: 2020-05-27T10:12:57.000Z
+modifiedDate: 2020-05-27T10:13:26.000Z
+createdDate: 2020-05-26T05:47:27.000Z
 ---
 
 V8を搭載したJavaScriptのランタイム

@@ -1,8 +1,8 @@
 ---
 name: Babel
 description: BabelはJavaScriptのトランスコンパイラー
-modifiedDate: 2020-05-27T10:12:57.000Z
-createdDate: 2020-05-27T10:12:57.000Z
+modifiedDate: 2020-05-27T10:13:26.000Z
+createdDate: 2020-05-26T05:46:00.000Z
 ---
 
 ECMAScriptの最新仕様の書き方から古い書き方へコードをコンパイルするのに必要だったり...

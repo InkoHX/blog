@@ -1,8 +1,8 @@
 ---
 name: TypeScript
 description: TypeScriptは、Microsoftが開発している「静的型付け言語」
-modifiedDate: 2020-05-27T10:12:57.000Z
-createdDate: 2020-05-27T10:12:57.000Z
+modifiedDate: 2020-05-27T10:13:26.000Z
+createdDate: 2020-05-12T14:13:40.000Z
 ---
 
 TypeScript は Microsoft が開発している**静的型付け言語**です。もっと簡単に言うと **「JavaScriptに型を追加した言語」**
