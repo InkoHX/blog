@@ -1,7 +1,7 @@
 ---
 name: Slack
 description: Slackはチームコミュニケーションツール
-modifiedDate: 2020-05-27T10:13:26.000Z
+modifiedDate: 2020-05-27T10:20:14.000Z
 createdDate: 2020-05-25T08:38:19.000Z
 ---
 
