@@ -53,8 +53,8 @@ const ServiceWorkerUpdatePopup: React.FC = () => {
     if (!workbox) return
     if (!('serviceWorker' in navigator)) return
 
-    const waitingHandler = () => setUpdate(true)
-    const controllingHandler = () => window.location.reload()
+    const waitingHandler = (): void => setUpdate(true)
+    const controllingHandler = (): void => window.location.reload()
 
     workbox.addEventListener('waiting', waitingHandler)
     workbox.addEventListener('controlling', controllingHandler)
