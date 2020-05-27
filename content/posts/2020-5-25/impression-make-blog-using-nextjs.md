@@ -1,7 +1,13 @@
 ---
 title: Next.js使って自分用のブログを作った感想とか
 description: 勉強用にNext.js使って自分用のブログを作った感想
-tags: ['TypeScript', 'Next.js', 'React', 'Vercel']
+tags:
+  - TypeScript
+  - Next.js
+  - React
+  - Vercel
+modifiedDate: 2020-05-27T07:50:39.000Z
+createdDate: 2020-05-27T07:50:39.000Z
 ---
 
 Reactも使ったのこれがほぼ初めてといっていいくらい無知の状態で作ったので、学習しながら開発しました。
