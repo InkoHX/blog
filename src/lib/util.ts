@@ -30,12 +30,17 @@ export const chunkArray = <T extends any[]>(array: T, size: number): T[] => arra
 export const parseMarkdownFile = async (path: string): Promise<MarkdownFile> => {
   const data = matter(await fs.readFile(path, 'utf8'))
   const html = stringifyHTML(data.content)
-  const { ctime, mtime } = await fs.stat(path)
+
+  const modifiedDate = data.data?.modifiedDate
+  const createdDate = data.data?.createdDate
+
+  if (!modifiedDate) throw new Error('The modifiedDate is missing in the YAML header.')
+  if (!createdDate) throw new Error('The createdDate is missing in the YAML header.')
 
   return {
     html,
-    createdDate: ctime,
-    modifiedDate: mtime,
+    createdDate,
+    modifiedDate,
     matterFile: data,
     fileName: basename(path, '.md'),
     filePath: path

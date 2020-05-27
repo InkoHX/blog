@@ -5,7 +5,7 @@ export interface TagMetadata {
   description: string
 }
 
-export interface Tag extends MarkdownFile, TagMetadata {}
+export interface Tag extends Omit<MarkdownFile, 'matterFile'>, TagMetadata {}
 
 export const getAllTagPaths = (): Promise<string[]> => glob('content/tags/**/*.md')
 
@@ -23,7 +23,6 @@ export const getTag = async (path: string): Promise<Tag | null> => {
     createdDate: file.createdDate,
     modifiedDate: file.modifiedDate,
     description: metadata.description,
-    matterFile: file.matterFile,
     fileName: file.fileName,
     filePath: file.filePath,
     html: file.html,

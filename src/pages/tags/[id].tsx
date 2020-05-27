@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 
 import { Article, ArticleFooter, ArticleHeader, ArticleMain } from '../../components'
-import { getAllTags, Tag, TagMetadata } from '../../lib'
+import { getAllTags, Tag } from '../../lib'
 import { internalLinkClickHandler } from '../../lib/router'
 
 interface TagProps {
@@ -15,7 +15,6 @@ interface TagProps {
 interface SerializeTag extends Omit<Tag, 'matterFile' | 'createdDate' | 'modifiedDate'> {
   createdDate: number
   modifiedDate: number
-  yaml: TagMetadata
 }
 
 const TagPage: React.FC<TagProps> = ({
@@ -84,8 +83,7 @@ export const getStaticProps: GetStaticProps<TagProps> = async context => {
         fileName: tag.fileName,
         filePath: tag.filePath,
         html: tag.html,
-        name: tag.name,
-        yaml: tag.matterFile.data as TagMetadata
+        name: tag.name
       }
     }
   }

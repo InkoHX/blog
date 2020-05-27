@@ -7,7 +7,7 @@ export interface PostMetadata {
   title: string
 }
 
-export interface Post extends MarkdownFile, Omit<PostMetadata, 'tags'> {
+export interface Post extends Omit<MarkdownFile, 'matterFile'>, Omit<PostMetadata, 'tags'> {
   tags: string[]
   hash: string
 }
@@ -30,7 +30,6 @@ export const getPost = async (path: string): Promise<Post | null> => {
     createdDate: file.createdDate,
     modifiedDate: file.modifiedDate,
     description: metadata.description,
-    matterFile: file.matterFile,
     fileName: file.fileName,
     filePath: file.filePath,
     html: file.html,
