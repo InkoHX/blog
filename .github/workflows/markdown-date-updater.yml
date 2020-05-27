@@ -15,7 +15,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
-    - run: yarn --frozen-lockfile
     - run: wget https://raw.githubusercontent.com/InkoHX/blog-date-updater/master/dist/index.js -O ./updater.js
     - run: node ./updater.js
     - run: |
