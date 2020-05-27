@@ -1,0 +1,28 @@
+name: Markdown Date Updater
+
+on:
+  push:
+    paths:
+      - 'content/posts/**/*.md'
+      - 'content/tags/**/*.md'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js v14
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - run: wget https://raw.githubusercontent.com/InkoHX/blog-date-updater/master/dist/index.js -O ./updater.js
+    - run: node ./updater.js
+    - run: |
+        git config user.name "Markdown Date Updater"
+        git config user.email "actions@github.com"
+        git add content
+        git commit -m "content: update modifiedDate & createdDate"
+    - name: push repo
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

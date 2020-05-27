@@ -1,6 +1,8 @@
 ---
 name: npm
 description: JavaScriptパッケージのレジストラ
+modifiedDate: 2020-05-27T07:50:39.000Z
+createdDate: 2020-05-27T07:50:39.000Z
 ---
 
 JavaScriptパッケージのレジストラ、[Node.js](/tags/nodejs)をインストールした際、一緒にくっついてくる。

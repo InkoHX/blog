@@ -1,12 +1,18 @@
 ---
 title: Next.js使って自分用のブログを作った感想とか
 description: 勉強用にNext.js使って自分用のブログを作った感想
-tags: ['TypeScript', 'Next.js', 'React', 'Vercel']
+tags:
+  - TypeScript
+  - Next.js
+  - React
+  - Vercel
+modifiedDate: 2020-05-27T07:50:39.000Z
+createdDate: 2020-05-27T07:50:39.000Z
 ---
 
 Reactも使ったのこれがほぼ初めてといっていいくらい無知の状態で作ったので、学習しながら開発しました。
 
-前から[CSS](/tags/css)に慣れなくてずっとWebから逃げていました。[JavaScript](/tags/javascript)やってるのにほぼWebに触れたことがなく、**Web技術の童貞**みたいな感じでした。このブログを作成する前まで[Node.js](/tags/nodejs)使って[Discord](/tags/discord)ボットばっかり開発していたので、今回の開発で少しWebを知るいい機会になりました。
+前から[CSS](/tags/css)に慣れなくてずっとWebから逃げていました。[JavaScript](/tags/javascript)やってるのにほぼWebに触れたことがなく、ほぼ初心者です。このブログを作成する前まで[Node.js](/tags/nodejs)使って[Discord](/tags/discord)ボットばっかり開発していたので、今回の開発で少しWebを知るいい機会になりました。
 
 それにしても[React](/tags/reactjs)めっちゃ良いですね～、今回[TypeScript](/tags/typescript)を使用したのですが、型のサポートが[Vue.js](/tags/vuejs)より強いと感じました。それと関数型コンポーネントの書きやすさにびっくりしました。
 

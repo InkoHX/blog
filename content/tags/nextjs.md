@@ -1,6 +1,8 @@
 ---
 name: Next.js
 description: Vercelによって開発されているReactフレームワーク
+modifiedDate: 2020-05-27T07:50:39.000Z
+createdDate: 2020-05-27T07:50:39.000Z
 ---
 
 Vercelによって開発されているReactフレームワーク、このブログでも使用しています。
