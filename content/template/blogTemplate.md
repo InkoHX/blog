@@ -1,5 +1,5 @@
 ---
-title: タイトル
+title: 記事のタイトル
 description: 簡単な説明
 tags:
   - TypeScript
