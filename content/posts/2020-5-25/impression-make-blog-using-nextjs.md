@@ -6,8 +6,6 @@ tags:
   - Next.js
   - React
   - Vercel
-modifiedDate: 2020-05-27T07:50:39.000Z
-createdDate: 2020-05-27T07:50:39.000Z
 ---
 
 Reactも使ったのこれがほぼ初めてといっていいくらい無知の状態で作ったので、学習しながら開発しました。
