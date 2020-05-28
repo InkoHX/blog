@@ -53,15 +53,20 @@ const ServiceWorkerUpdatePopup: React.FC = () => {
     if (!workbox) return
     if (!('serviceWorker' in navigator)) return
 
-    workbox.addEventListener('waiting', () => {
-      setUpdate(true)
-    })
+    const waitingHandler = (): void => setUpdate(true)
+    const controllingHandler = (): void => window.location.reload()
 
-    workbox.addEventListener('controlling', () => window.location.reload())
+    workbox.addEventListener('waiting', waitingHandler)
+    workbox.addEventListener('controlling', controllingHandler)
 
     workbox.register()
       .catch(console.error)
-  })
+
+    return () => {
+      workbox.removeEventListener('waiting', waitingHandler)
+      workbox.removeEventListener('controlling', controllingHandler)
+    }
+  }, [])
 
   return (
     <Snackbar

@@ -21,9 +21,9 @@ const TagPage: React.FC<TagProps> = ({
   tag
 }) => {
   const router = useRouter()
-  const createdDate = React.useMemo(() => new Date(tag.createdDate).toISOString(), [tag.createdDate])
-  const modifiedDate = React.useMemo(() => new Date(tag.modifiedDate).toISOString(), [tag.modifiedDate])
-  const handleInternalLink = React.useCallback((event: React.MouseEvent<HTMLElement>) => internalLinkClickHandler(event, router), [router])
+  const createdDate = new Date(tag.createdDate).toISOString()
+  const modifiedDate = new Date(tag.modifiedDate).toISOString()
+  const handleInternalLink = (event: React.MouseEvent<HTMLElement>): Promise<boolean> | undefined => internalLinkClickHandler(event, router)
 
   return (
     <React.Fragment>

@@ -11,21 +11,25 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Fetch all history for all tags and branches
       run: git fetch --prune --unshallow --tags
     - name: Use Node.js v14
       uses: actions/setup-node@v1
       with:
         node-version: 14
-    - run: wget https://raw.githubusercontent.com/InkoHX/blog-date-updater/master/dist/index.js -O ./updater.js
-    - run: node ./updater.js
-    - run: |
-        git config user.name "Markdown Date Updater"
+    - name: Download InkoHX/blog-date-updater
+      run: wget https://raw.githubusercontent.com/InkoHX/blog-date-updater/master/dist/index.js -O ./updater.js
+    - name: Update Markdown file creation and modification dates
+      run: node ./updater.js
+    - name: Commit changes
+      run: |
+        git config user.name "blog-date-updater-action"
         git config user.email "actions@github.com"
         git add content
         git commit -m "content: update modifiedDate & createdDate"
-    - name: push repo
+    - name: Push this repo
       uses: ad-m/github-push-action@v0.6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

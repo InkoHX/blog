@@ -49,7 +49,6 @@ type MenuButtons = ReadonlyArray<Omit<MenuIconButtonProps, 'onClick' | 'label'> 
 
 export const AppMenuIcon: React.FC = () => {
   const [isOpen, setOpen] = React.useState(false)
-  const menuButtonClickHandler = React.useCallback(() => setOpen(false), [setOpen])
 
   const menuButtons: MenuButtons = [
     {
@@ -77,7 +76,7 @@ export const AppMenuIcon: React.FC = () => {
         label={value.title}
         href={value.href}
         as={value.as}
-        onClick={menuButtonClickHandler}
+        onClick={() => setOpen(false)}
       >
         {value.icon}
       </MenuIconButton>

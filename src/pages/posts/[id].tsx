@@ -26,9 +26,9 @@ const PostPage: React.FC<PostProps> = ({
   post
 }) => {
   const router = useRouter()
-  const createdDate = React.useMemo(() => new Date(post.createdDate).toISOString(), [post.createdDate])
-  const modifiedDate = React.useMemo(() => new Date(post.modifiedDate).toISOString(), [post.modifiedDate])
-  const handleInternalLink = React.useCallback((event: React.MouseEvent<HTMLElement>) => internalLinkClickHandler(event, router), [router])
+  const createdDate = new Date(post.createdDate).toISOString()
+  const modifiedDate = new Date(post.modifiedDate).toISOString()
+  const handleInternalLink = (event: React.MouseEvent<HTMLElement>): Promise<boolean> | undefined => internalLinkClickHandler(event, router)
 
   return (
     <React.Fragment>
