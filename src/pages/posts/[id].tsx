@@ -28,7 +28,7 @@ const PostPage: React.FC<PostProps> = ({
   const router = useRouter()
   const createdDate = new Date(post.createdDate).toISOString()
   const modifiedDate = new Date(post.modifiedDate).toISOString()
-  const handleInternalLink = (event: React.MouseEvent<HTMLElement>) => internalLinkClickHandler(event, router)
+  const handleInternalLink = (event: React.MouseEvent<HTMLElement>): Promise<boolean> | undefined => internalLinkClickHandler(event, router)
 
   return (
     <React.Fragment>
