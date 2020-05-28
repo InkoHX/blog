@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import * as React from 'react'
 import { Typography } from '@material-ui/core'
 
-const ArticleFooterInner = styled.footer`
+const Footer = styled.footer`
   margin-top: 50px;
 `
 
@@ -14,8 +14,8 @@ export const ArticleFooter: React.FC<ArticleFooterProps> = ({ filePath }) => {
   const editLink = `https://github.com/InkoHX/blog/edit/master/${filePath}`
 
   return (
-    <ArticleFooterInner>
+    <Footer>
       <Typography component='a' href={editLink}>このページをGitHubで編集する。</Typography>
-    </ArticleFooterInner>
+    </Footer>
   )
 }

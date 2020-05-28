@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { ArticleListContainer, CardInner } from '../../components'
+import { ArticleListContainer, StyledArticleListCard } from '../../components'
 import { chunkArray, getAllPosts, Post } from '../../lib'
 
 import type { GetStaticProps, NextPage } from 'next'
@@ -41,13 +41,13 @@ const TagsPage: NextPage<PostsPageProps> = ({
     <Grid key={post.description} item xs={12} sm={4}>
       <NextLink href='/posts/[id]' as={`/posts/${post.hash}`} passHref>
         <CardActionArea>
-          <CardInner>
+          <StyledArticleListCard>
             <CardHeader subheader={Intl.DateTimeFormat('ja-JP').format(post.modifiedDate)} />
             <CardContent>
               <Typography gutterBottom variant='h6' component='h2'>{post.title}</Typography>
               <Typography variant='body1' component='p'>{post.description}</Typography>
             </CardContent>
-          </CardInner>
+          </StyledArticleListCard>
         </CardActionArea>
       </NextLink>
     </Grid>

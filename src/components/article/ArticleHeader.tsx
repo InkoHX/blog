@@ -23,7 +23,7 @@ export const ArticleHeader: React.FC<ArticleHeaderProps> = ({
   const modifiedDateTime = Intl.DateTimeFormat('ja-JP').format(modifiedTime)
   const chips = tags?.map(tag => (
     <NextLink key={tag.name} href='/tags/[id]' as={`/tags/${tag.fileName}`} passHref>
-      <Chip label={tag.name} />
+      <Chip label={tag.name} clickable />
     </NextLink>
   ))
 
