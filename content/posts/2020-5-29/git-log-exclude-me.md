@@ -3,7 +3,7 @@ title: git log で自分自身を除外したいときには
 description: git log を使用して自分自身を除外する方法
 tags:
   - Git
-modifiedDate: 2020-05-29T12:39:22.000Z
+modifiedDate: 2020-05-29T12:43:36.000Z
 createdDate: 2020-05-29T12:34:16.000Z
 ---
 
