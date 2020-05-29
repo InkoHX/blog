@@ -1,7 +1,7 @@
 ---
 name: Atom
 description: GitHubがオープンソースで開発しているコードエディタである。
-modifiedDate: 2020-05-29T02:30:25.000Z
+modifiedDate: 2020-05-27T10:23:35.000Z
 createdDate: 2020-05-25T07:34:06.000Z
 ---
 
