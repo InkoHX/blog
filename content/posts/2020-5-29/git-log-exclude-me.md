@@ -3,6 +3,7 @@ title: git log で自分自身を除外したいときには
 description: git log を使用して自分自身を除外する方法
 tags:
   - Git
+  - 正規表現
 modifiedDate: 2020-05-29T12:34:16.000Z
 createdDate: 2020-05-29T12:34:16.000Z
 ---
@@ -23,7 +24,7 @@ git log --perl-regexp --committer='^((?!自分自身の名前).*)$'
 
 ## 面倒だからエイリアスを設定しておこう
 
-いちいち長いコマンドを打ちたくはないのでエイリアス設定しておきましょう。
+いちいち長いコマンドを打ちたくはないでしょうから、エイリアスを設定しておきましょう。
 
 ```bash
 git config --global alias.log-E4M-author "log --perl-regexp --author='^((?!自分自身の名前).*)$'"
