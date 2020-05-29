@@ -1,7 +1,7 @@
 ---
 name: Electron
 description: CSS JavaScript HTML といった Web技術 だけで Windows、Mac、Linux のネイティブアプリケーションを作成できる。
-modifiedDate: 2020-05-27T10:23:35.000Z
+modifiedDate: 2020-05-28T02:14:54.000Z
 createdDate: 2020-05-21T14:44:13.000Z
 ---
 

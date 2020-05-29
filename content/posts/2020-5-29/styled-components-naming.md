@@ -1,7 +1,10 @@
 ---
 title: styled-componentsを使用したときの命名と構造
 description: styled-componentsを使用して作ったスタイルコンポーネントを作るときに名前付けやファイル構造をどうするかについて
-tags: ['React']
+tags:
+  - React
+modifiedDate: 2020-05-29T02:24:22.000Z
+createdDate: 2020-05-29T02:24:22.000Z
 ---
 
 [React](/tags/react)の勉強を真面目に始めて数週間経つのだが、**styled-components**を使用したときに付けるコンポーネントの名前付けにちょっと困っているので、どういう設計で名前を付けているののか少し調べてみた。

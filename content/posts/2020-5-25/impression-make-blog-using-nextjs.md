@@ -6,7 +6,7 @@ tags:
   - Next.js
   - React
   - Vercel
-modifiedDate: 2020-05-27T10:23:35.000Z
+modifiedDate: 2020-05-28T02:14:54.000Z
 createdDate: 2020-05-25T15:36:16.000Z
 ---
 

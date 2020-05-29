@@ -1,7 +1,7 @@
 ---
 name: Babel
 description: BabelはJavaScriptのトランスコンパイラー
-modifiedDate: 2020-05-27T10:23:35.000Z
+modifiedDate: 2020-05-28T02:14:54.000Z
 createdDate: 2020-05-26T05:46:00.000Z
 ---
 
