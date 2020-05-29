@@ -3,6 +3,8 @@ title: git log で自分自身を除外したいときには
 description: git log を使用して自分自身を除外する方法
 tags:
   - Git
+modifiedDate: 2020-05-29T12:34:16.000Z
+createdDate: 2020-05-29T12:34:16.000Z
 ---
 
 `git log` は便利だけど、自分自身を除外するときには `--perl-regexp` を使用して**正規表現**を使う必要がある。
