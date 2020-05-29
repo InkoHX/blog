@@ -1,7 +1,7 @@
 ---
 name: Vercel
 description: Webサイトを高速にビルドして公開してくれるサービス
-modifiedDate: 2020-05-27T10:20:14.000Z
+modifiedDate: 2020-05-27T10:23:35.000Z
 createdDate: 2020-05-26T05:48:13.000Z
 ---
 

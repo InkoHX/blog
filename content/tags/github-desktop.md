@@ -1,7 +1,7 @@
 ---
 name: GitHub Desktop
 description: コミット、プッシュ、プル、変更の差分をGitのコマンドを使わずにGUIで操作できる便利なツール
-modifiedDate: 2020-05-27T10:20:14.000Z
+modifiedDate: 2020-05-27T10:23:35.000Z
 createdDate: 2020-05-25T08:43:30.000Z
 ---
 
