@@ -15,7 +15,7 @@ createdDate: 2020-05-29T02:24:22.000Z
 src/
   ┗ components/
       ┗━━━━━━━ AppBar/
-                ┗━━━━ styles.js
+                  ┗━━━━ styles.js
 ```
 
 こういう感じの構造で、`styles.js` というファイルを作り管理する方法が多いらしい
