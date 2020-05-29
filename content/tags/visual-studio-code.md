@@ -1,7 +1,7 @@
 ---
 name: Visual Studio Code
 description: Visual Studio Code は Web技術 を使用して作られた無料の高性能なコードエディタ
-modifiedDate: 2020-05-29T02:24:49.000Z
+modifiedDate: 2020-05-29T02:30:25.000Z
 createdDate: 2020-05-16T12:21:51.000Z
 ---
 

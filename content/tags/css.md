@@ -1,7 +1,7 @@
 ---
 name: CSS
 description: Cascading Style Sheets (カスケーディングスタイルシート)
-modifiedDate: 2020-05-29T02:24:49.000Z
+modifiedDate: 2020-05-29T02:30:25.000Z
 createdDate: 2020-05-26T05:46:24.000Z
 ---
 

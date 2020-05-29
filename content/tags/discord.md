@@ -1,7 +1,7 @@
 ---
 name: Discord
 description: ゲーマー向けのビデオ通話、音声通話、チャットを無料で提供しているサービス
-modifiedDate: 2020-05-29T02:24:49.000Z
+modifiedDate: 2020-05-29T02:30:25.000Z
 createdDate: 2020-05-21T15:45:46.000Z
 ---
 

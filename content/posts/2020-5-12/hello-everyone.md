@@ -2,7 +2,7 @@
 title: Next.js使ってブログ作りました。
 description: Next.js使ってブログみたいなのを作ってみました。今後ここに何か書いていきます。
 tags: []
-modifiedDate: 2020-05-29T02:24:49.000Z
+modifiedDate: 2020-05-29T02:30:25.000Z
 createdDate: 2020-05-12T14:13:40.000Z
 ---
 

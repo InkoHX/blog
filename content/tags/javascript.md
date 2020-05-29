@@ -1,7 +1,7 @@
 ---
 name: JavaScript
 description: JavaScriptは動的型付けを持つスクリプト言語です。
-modifiedDate: 2020-05-29T02:24:49.000Z
+modifiedDate: 2020-05-29T02:30:25.000Z
 createdDate: 2020-05-21T14:17:46.000Z
 ---
 
