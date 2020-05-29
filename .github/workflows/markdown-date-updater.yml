@@ -5,7 +5,7 @@ on:
     paths:
       - 'content/posts/**/*.md'
       - 'content/tags/**/*.md'
-      - '.github/workflows/markdown-date-updater.yml'
+
 
 jobs:
   update:
