@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { ArticleListContainer, CardInner } from '../../components'
+import { ArticleListContainer, StyledArticleListCard } from '../../components'
 import { chunkArray, getAllTags, Tag } from '../../lib'
 
 import type { GetStaticProps, NextPage } from 'next'
@@ -41,13 +41,13 @@ const TagsPage: NextPage<TagsPageProps> = ({
     <Grid key={tag.description} item xs={12} sm={4}>
       <NextLink href='/tags/[id]' as={`/tags/${tag.fileName}`} passHref>
         <CardActionArea>
-          <CardInner>
+          <StyledArticleListCard>
             <CardHeader subheader={Intl.DateTimeFormat('ja-JP').format(tag.modifiedDate)} />
             <CardContent>
               <Typography gutterBottom variant='h6' component='h2'>{tag.name}</Typography>
               <Typography variant='body1' component='p'>{tag.description}</Typography>
             </CardContent>
-          </CardInner>
+          </StyledArticleListCard>
         </CardActionArea>
       </NextLink>
     </Grid>
@@ -58,6 +58,7 @@ const TagsPage: NextPage<TagsPageProps> = ({
       <NextSeo
         title='タグ一覧'
         description='InkoHXのブログに存在するタグの一覧'
+        canonical='https://inkohx.me/tags'
         openGraph={{
           type: 'website',
           title: 'タグ一覧',

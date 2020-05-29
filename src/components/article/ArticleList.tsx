@@ -27,7 +27,7 @@ export interface ArticleTagListProps {
 
 export type ArticleListProps = ArticlePostListProps | ArticleTagListProps
 
-export const CardInner = styled(Card)`
+export const StyledArticleListCard = styled(Card)`
   height: 230px;
 `
 
@@ -67,7 +67,7 @@ export const ArticleList: React.FC<ArticleListProps> = ({
     <Grid key={value.description} item xs={12} sm={4}>
       <NextLink href={value.href} as={value.as} passHref>
         <CardActionArea>
-          <CardInner>
+          <StyledArticleListCard>
             <CardHeader
               subheader={value.modifiedDate}
             />
@@ -75,7 +75,7 @@ export const ArticleList: React.FC<ArticleListProps> = ({
               <Typography gutterBottom variant="h5" component="h2">{value.title}</Typography>
               <Typography variant='body2'>{value.description}</Typography>
             </CardContent>
-          </CardInner>
+          </StyledArticleListCard>
         </CardActionArea>
       </NextLink>
     </Grid >
