@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 export const AdSenseScript: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') return null
   if (!process.env.GOOGLE_ADSENSE_ID) return null
