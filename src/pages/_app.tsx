@@ -21,8 +21,6 @@ const App: NextPage<AppProps> = (props) => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-
       <DefaultSeo
         twitter={{
           cardType: 'summary_large_image',
@@ -50,6 +48,7 @@ const App: NextPage<AppProps> = (props) => {
       <StylesProvider injectFirst>
         <MaterialThemeProvider theme={defaultTheme}>
           <StyledThemeProvider theme={defaultTheme}>
+            <CssBaseline />
             <AppBar />
             <StyledContainer>
               <Component {...pageProps} />
