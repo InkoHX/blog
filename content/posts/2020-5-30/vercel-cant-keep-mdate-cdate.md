@@ -3,7 +3,7 @@ title: Vercelのビルドパイプラインに渡されるファイルは作成�
 description: 自分がこのブログを作るにあたって発生した問題とその解決方法
 tags:
   - Vercel
-modifiedDate: 2020-05-30T13:01:47.000Z
+modifiedDate: 2020-05-30T13:44:32.000Z
 createdDate: 2020-05-30T12:44:05.000Z
 ---
 
