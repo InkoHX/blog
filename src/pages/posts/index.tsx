@@ -16,7 +16,7 @@ interface PostsPageProps {
   posts: readonly Posts[][]
 }
 
-const PaginationInner = styled(Pagination)`
+const StyledPagination = styled(Pagination)`
   ul {
     margin: 30px auto;
     justify-content: center;
@@ -79,7 +79,7 @@ const TagsPage: NextPage<PostsPageProps> = ({
           {postCards}
         </Grid>
       </ArticleListContainer>
-      <PaginationInner
+      <StyledPagination
         count={posts.length}
         page={currentPage}
         showFirstButton

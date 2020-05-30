@@ -16,7 +16,7 @@ interface TagsPageProps {
   tags: readonly Tags[][]
 }
 
-const PaginationInner = styled(Pagination)`
+const StyledPagination = styled(Pagination)`
   ul {
     margin: 30px auto;
     justify-content: center;
@@ -79,7 +79,7 @@ const TagsPage: NextPage<TagsPageProps> = ({
           {tagCards}
         </Grid>
       </ArticleListContainer>
-      <PaginationInner
+      <StyledPagination
         count={tags.length}
         page={currentPage}
         showFirstButton
