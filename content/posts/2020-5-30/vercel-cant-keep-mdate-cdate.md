@@ -3,8 +3,8 @@ title: Vercelのビルドパイプに渡されるファイルは作成日や変�
 description: 自分がこのブログを作るにあたって発生した問題とその解決方法
 tags:
   - Vercel
-modifiedDate: 2020-05-27T10:23:35.000Z
-createdDate: 2020-05-13T11:29:53.000Z
+modifiedDate: 2020-05-30T12:44:05.000Z
+createdDate: 2020-05-30T12:44:05.000Z
 ---
 
 [Next.js](/tags/nextjs)のSSGサポートを見て、[Vercel](/tags/vercel)と一緒に[Next.js](/tags/nextjs)を使用してこのブログを作ってみたのだが、[Vercel](/tags/vercel)のビルドパイプラインに渡ったファイルの変更日と作成日がデプロイした日付と同じになるという問題に遭遇した。
