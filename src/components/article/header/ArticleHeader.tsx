@@ -1,19 +1,8 @@
 import { Chip, Divider, Typography } from '@material-ui/core'
 import NextLink from 'next/link'
 import * as React from 'react'
-import styled from 'styled-components'
 
-import { PostTag } from '../../pages/posts/[id]'
-
-const Headline = styled.div`
-  margin: 15px 0;
-`
-
-export interface ArticleHeaderProps {
-  tags?: PostTag[]
-  title: string
-  modifiedTime: number
-}
+import { ArticleHeaderProps, ArticleHeadline } from '.'
 
 export const ArticleHeader: React.FC<ArticleHeaderProps> = ({
   modifiedTime,
@@ -29,11 +18,11 @@ export const ArticleHeader: React.FC<ArticleHeaderProps> = ({
 
   return (
     <header>
-      <Headline>
+      <ArticleHeadline>
         <Typography variant='h3' component='h1' style={{ marginBottom: '10px' }}>{title}</Typography>
         <Typography variant='subtitle2' component='p' style={{ marginBottom: '5px' }}>最終更新日: {modifiedDateTime}</Typography>
         {chips}
-      </Headline>
+      </ArticleHeadline>
       <Divider style={{ margin: '10px 0' }} />
     </header>
   )
