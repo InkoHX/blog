@@ -18,21 +18,6 @@ jobs:
       - name: Run MarkdownLint
         run: yarn run lint:markdown
 
-  textlint:
-    name: TextLint
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js v14
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14.x"
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-      - name: Run TextLint
-        run: yarn run lint:text
-
   stylelint:
     name: StyleLint
     runs-on: ubuntu-latest
