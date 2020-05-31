@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore .",
-    "lint:style": "stylelint ./src/**/*.tsx",
+    "lint:style": "stylelint ./src/**/*",
     "lint:markdown": "markdownlint ./",
     "lint:text": "textlint ./content/**/*.md"
   },
