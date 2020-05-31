@@ -3,7 +3,7 @@ title: Vercelのビルドパイプラインに渡されるファイルは作成�
 description: Vercelのビルドパイプラインに渡されるファイルは作成日や変更日を保つことができない問題にぶつかり、解決したお話
 tags:
   - Vercel
-modifiedDate: 2020-05-30T13:44:32.000Z
+modifiedDate: 2020-05-31T02:31:56.000Z
 createdDate: 2020-05-30T12:44:05.000Z
 ---
 
