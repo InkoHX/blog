@@ -3,7 +3,7 @@ name: MarkdownLint
 on:
   push:
     paths:
-      - "*.md"
+      - "**/*.md"
 
 jobs:
   lint:
