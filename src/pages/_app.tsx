@@ -32,7 +32,7 @@ const App: NextPage<AppProps> = (props) => {
           locale: 'ja-JP',
           type: 'website',
           site_name: 'InkoHX Blog',
-          url: `https://inkohx.me${router.asPath}`
+          url: `https://blog.inkohx.dev${router.asPath}`
         }}
       />
       <Head>

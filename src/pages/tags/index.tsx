@@ -58,7 +58,7 @@ const TagsPage: NextPage<TagsPageProps> = ({
       <NextSeo
         title='タグ一覧'
         description='InkoHXのブログに存在するタグの一覧'
-        canonical='https://inkohx.me/tags'
+        canonical='https://blog.inkohx.dev/tags'
         openGraph={{
           type: 'website',
           title: 'タグ一覧',
