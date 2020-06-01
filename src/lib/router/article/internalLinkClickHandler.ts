@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { NextRouter } from 'next/router'
 
-export const INTERNAL_LINK_PATTERN = /^(?:http(?:s)?:\/\/)?(?:.+\.)?(?:(?:inkohx)\.(?:me|now\.sh)|localhost:.{1,5})\/(?<type>(tags|posts))\/(?<id>.+)$/su
+export const INTERNAL_LINK_PATTERN = /^(?:http(?:s)?:\/\/)?(?:.+\.)?(?:(?:inkohx)\.(?:dev|now\.sh)|localhost:.{1,5})\/(?<type>(tags|posts))\/(?<id>.+)$/su
 
 export const internalLinkClickHandler = (event: React.MouseEvent<HTMLElement>, router: NextRouter): Promise<boolean> | undefined => {
   const elements = event.currentTarget.getElementsByTagName('a')
