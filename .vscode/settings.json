@@ -3,5 +3,24 @@
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "stylelint.packageManager": "yarn",
-  "textlint.run": "onSave"
+  "textlint.run": "onSave",
+  "cSpell.words": [
+    "Inko",
+    "Vercel",
+    "dearu",
+    "desumasu",
+    "downlevel",
+    "esnext",
+    "fukushi",
+    "fullscreen",
+    "hankaku",
+    "highlightjs",
+    "hojodoushi",
+    "joshi",
+    "keishikimeishi",
+    "markdownlint",
+    "stylelint",
+    "textlint",
+    "zenkaku"
+  ]
 }

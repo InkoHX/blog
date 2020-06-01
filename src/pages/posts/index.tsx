@@ -16,7 +16,7 @@ interface PostsPageProps {
   posts: readonly Posts[][]
 }
 
-const PaginationInner = styled(Pagination)`
+const StyledPagination = styled(Pagination)`
   ul {
     margin: 30px auto;
     justify-content: center;
@@ -58,7 +58,7 @@ const TagsPage: NextPage<PostsPageProps> = ({
       <NextSeo
         title='記事一覧'
         description='InkoHXのブログに存在する記事一覧'
-        canonical='https://inkohx.me/posts'
+        canonical='https://blog.inkohx.dev/posts'
         openGraph={{
           type: 'website',
           title: '記事一覧',
@@ -79,7 +79,7 @@ const TagsPage: NextPage<PostsPageProps> = ({
           {postCards}
         </Grid>
       </ArticleListContainer>
-      <PaginationInner
+      <StyledPagination
         count={posts.length}
         page={currentPage}
         showFirstButton

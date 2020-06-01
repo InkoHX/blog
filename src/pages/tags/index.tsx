@@ -16,7 +16,7 @@ interface TagsPageProps {
   tags: readonly Tags[][]
 }
 
-const PaginationInner = styled(Pagination)`
+const StyledPagination = styled(Pagination)`
   ul {
     margin: 30px auto;
     justify-content: center;
@@ -58,7 +58,7 @@ const TagsPage: NextPage<TagsPageProps> = ({
       <NextSeo
         title='タグ一覧'
         description='InkoHXのブログに存在するタグの一覧'
-        canonical='https://inkohx.me/tags'
+        canonical='https://blog.inkohx.dev/tags'
         openGraph={{
           type: 'website',
           title: 'タグ一覧',
@@ -79,7 +79,7 @@ const TagsPage: NextPage<TagsPageProps> = ({
           {tagCards}
         </Grid>
       </ArticleListContainer>
-      <PaginationInner
+      <StyledPagination
         count={tags.length}
         page={currentPage}
         showFirstButton
