@@ -16,7 +16,7 @@ export interface PostTag extends Omit<TagMetadata, 'description'> {
   fileName: string
 }
 
-interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'createdDate' | 'tags' | 'hash'> {
+interface SerializePost extends Omit<Post, 'matterFile' | 'modifiedDate' | 'createdDate' | 'tags'> {
   modifiedDate: number
   createdDate: number
   tags: PostTag[]
@@ -38,6 +38,7 @@ const PostPage: React.FC<PostProps> = ({
       <NextSeo
         description={post.description}
         title={post.title}
+        canonical={`https://inkohx.dev/posts/${post.hash}`}
         openGraph={{
           type: 'article',
           title: `${post.title}`,
@@ -95,6 +96,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
         filePath: post.filePath,
         html: post.html,
         title: post.title,
+        hash: post.hash,
         tags
       }
     }

@@ -33,6 +33,7 @@ const TagPage: React.FC<TagProps> = ({
       <NextSeo
         description={tag.description}
         title={tag.name}
+        canonical={`https://inkohx.dev/tags/${tag.fileName}`}
         openGraph={{
           type: 'article',
           article: {
