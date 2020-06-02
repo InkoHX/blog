@@ -3,8 +3,8 @@ title: Vercelに登録したドメインにGUIでレコードを追加できる�
 description: Vercelに登録したドメインをCLIからではなくインテグレーションを使用して、Webから操作できるやつを見つけたので紹介
 tags:
   - Vercel
-modifiedDate: 2020-05-27T10:23:35.000Z
-createdDate: 2020-05-13T11:29:53.000Z
+modifiedDate: 2020-06-02T13:40:20.000Z
+createdDate: 2020-06-02T13:40:20.000Z
 ---
 
 この記事を読んでいるということは、[Vercel](/tags/vercel)を使用している人で、独自ドメインに[Vercel](/tags/vercel)のネームサーバーを割り当てていると思うのですが、**DNSレコードをいちいちコマンドで打ち込むの、めんどくさい**
