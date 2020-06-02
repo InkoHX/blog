@@ -69,11 +69,11 @@ export const ArticleList: React.FC<ArticleListProps> = ({
         <CardActionArea>
           <StyledArticleListCard>
             <CardHeader
+              title={value.title}
               subheader={value.modifiedDate}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">{value.title}</Typography>
-              <Typography variant='body2'>{value.description}</Typography>
+              <Typography variant='body2' component='p'>{value.description}</Typography>
             </CardContent>
           </StyledArticleListCard>
         </CardActionArea>
