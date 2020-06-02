@@ -5,6 +5,7 @@
   "stylelint.packageManager": "yarn",
   "textlint.run": "onSave",
   "cSpell.words": [
+    "CNAME",
     "Inko",
     "Vercel",
     "dearu",
