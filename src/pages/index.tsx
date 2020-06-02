@@ -19,6 +19,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
       <NextSeo
         title='ホーム'
         description='InkoHXのブログです。適当になんか技術的なこと中心に書いてます。'
+        canonical='https://inkohx.dev'
         openGraph={{
           description: '技術的なことについてInkoHXが色々書いているサイト',
           title: 'ホーム',

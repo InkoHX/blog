@@ -61,6 +61,7 @@ const AboutPage: NextPage = () => {
       <NextSeo
         description='InkoHX Blog について'
         title='InkoHX Blog について'
+        canonical='https://inkohx.dev/about'
         openGraph={{
           description: 'InkoHX Blogについて',
           title: 'InkoHX Blogについて',
