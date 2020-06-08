@@ -4,7 +4,7 @@ description: コードブロックを使用せずにコードを送信してき�
 tags:
   - Discord
   - TypeScript
-modifiedDate: 2020-06-08T14:49:28.000Z
+modifiedDate: 2020-06-08T14:54:01.000Z
 createdDate: 2020-06-08T14:35:22.000Z
 ---
 
