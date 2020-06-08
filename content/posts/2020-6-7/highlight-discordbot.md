@@ -32,7 +32,7 @@ createdDate: 2020-06-08T14:35:22.000Z
 
 ## 使い方
 
-`>highlight` または ボットをメンションすることで、一つ上のメッセージをハイライトできる。
+`>highlight` または、ボットを**メンション**することで、一つ上のメッセージをハイライトできる。
 
 ![メンションまたは、>highlightを使用したときに返ってくるメッセージの画像](/images/posts/2020-6-7/highlight-discordbot/highlight-command.png)
 
