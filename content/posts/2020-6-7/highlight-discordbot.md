@@ -34,8 +34,8 @@ createdDate: 2020-06-08T14:35:22.000Z
 
 `>highlight` または ボットをメンションすることで、一つ上のメッセージをハイライトできる。
 
-![メンションまたは、>highlightを使用したときに返ってくるメッセージの画像](/images/posts/highlight-discordbot/highlight-command.png)
+![メンションまたは、>highlightを使用したときに返ってくるメッセージの画像](/images/posts/2020-6-7/highlight-discordbot/highlight-command.png)
 
 また、メッセージIDで指定して、ハイライトとフォーマットを実行できます。
 
-![メッセージIDを指定して、ハイライトする場合に送ってくるメッセージの画像](/images/posts/highlight-discordbot/message-id-highlight.png)
+![メッセージIDを指定して、ハイライトする場合に送ってくるメッセージの画像](/images/posts/2020-6-7/highlight-discordbot/message-id-highlight.png)
