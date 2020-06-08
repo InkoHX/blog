@@ -4,6 +4,8 @@ description: コードブロックを使用せずにコードを送信してき�
 tags:
   - Discord
   - TypeScript
+modifiedDate: 2020-06-08T14:35:22.000Z
+createdDate: 2020-06-08T14:35:22.000Z
 ---
 
 [Discord.js Japan User Group](https://discordjs-japan.org)用に作成した[Discord](/tags/discord)ボットを開発したのでそれの紹介
