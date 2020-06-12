@@ -23,7 +23,7 @@ createdDate: 2020-05-13T11:29:53.000Z
 
 どういうことかというと下記のような書き方で、Schemaを指定できません。。
 
-```jsonc
+```json
 // vercel.json
 
 {
@@ -37,7 +37,7 @@ createdDate: 2020-05-13T11:29:53.000Z
 
 `$schema` を使用せずとも、[VS Code](/tags/visual-studio-code)の設定には、`json.schemas` という項目があり、`fileMatch`で一致したファイルに指定したSchemaを適用できます。
 
-```jsonc
+```json
 // .vscode/settings.json
 
 {
