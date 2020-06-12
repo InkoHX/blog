@@ -23,5 +23,13 @@
     "stylelint",
     "textlint",
     "zenkaku"
+  ],
+  "json.schemas": [
+  {
+    "fileMatch": [
+      "/vercel.json"
+    ],
+    "url": "https://vcs.now.sh"
+  }
   ]
 }
