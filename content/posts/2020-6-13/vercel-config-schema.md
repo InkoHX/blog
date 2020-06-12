@@ -4,8 +4,8 @@ description: vercel.json 用の JSON Schema を作ったので VS Code での使
 tags:
   - Vercel
   - Visual Studio Code
-modifiedDate: 2020-05-27T10:23:35.000Z
-createdDate: 2020-05-13T11:29:53.000Z
+modifiedDate: 2020-06-12T17:10:31.000Z
+createdDate: 2020-06-12T17:10:31.000Z
 ---
 
 ## 今回作ったもの
