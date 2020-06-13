@@ -3,26 +3,17 @@ import { StylesProvider } from '@material-ui/styles'
 import { NextPage } from 'next'
 import { DefaultSeo } from 'next-seo'
 import { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import styled, { ThemeProvider as StyledThemeProvider } from 'styled-components'
 
-import { AppBar, Container, Footer, ServiceWorkerUpdatePopup } from '../components'
+import { AdSenseScript, AnalyticsScript, AppBar, Container, Footer, ServiceWorkerUpdatePopup } from '../components'
 import { defaultTheme } from '../styles'
 
 const StyledContainer = styled(Container)`
   min-height: 100vh;
 `
-
-const DynamicAdSenseScript = dynamic(() => import('../components/google/AdSenseScript'), {
-  ssr: false
-})
-
-const DynamicAnalyticsScript = dynamic(() => import('../components/google/AnalyticsScript'), {
-  ssr: false
-})
 
 const App: NextPage<AppProps> = (props) => {
   const { Component, pageProps } = props
@@ -50,8 +41,8 @@ const App: NextPage<AppProps> = (props) => {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel='apple-touch-icon' sizes='192x192' href='/images/icons/icon-192x192.png' />
         <link rel="manifest" href="/manifest.json" />
-        <DynamicAnalyticsScript />
-        <DynamicAdSenseScript />
+        <AnalyticsScript />
+        <AdSenseScript />
       </Head>
 
       <StylesProvider injectFirst>
