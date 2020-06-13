@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const AnalyticsScript: React.FC = () => {
+const AnalyticsScript: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') return null
   if (!process.env.GA_TRACKING_ID) return null
 
@@ -18,3 +18,5 @@ export const AnalyticsScript: React.FC = () => {
     </React.Fragment>
   )
 }
+
+export default AnalyticsScript
