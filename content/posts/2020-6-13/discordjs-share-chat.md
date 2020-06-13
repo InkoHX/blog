@@ -5,8 +5,8 @@ tags:
   - JavaScript
   - Discord
   - Node.js
-modifiedDate: 2020-05-27T10:23:35.000Z
-createdDate: 2020-05-13T11:29:53.000Z
+modifiedDate: 2020-06-13T03:45:12.000Z
+createdDate: 2020-06-13T03:45:12.000Z
 ---
 
 みんなが「グローバルチャット」と呼ぶものを、Discord.jsを使って[JavaScript](/tags/javascript)で書いてみました。
