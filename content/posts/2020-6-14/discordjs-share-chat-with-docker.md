@@ -17,9 +17,9 @@ createdDate: 2020-05-13T11:29:53.000Z
   - [Docker](/tags/docker)に関する知識も少しないと難しいかもしれません
 - [Discord](/tags/discord)ボットのトークン
 
-## docker run を使用して起動する
+## docker run を使用した方法
 
-`docker` コマンドを使用した方法
+`docker` コマンドを使用してコンテナを起動、停止したりする場合
 
 ### コンテナの作成 - docker
 
