@@ -64,6 +64,10 @@ createdDate: 2020-06-13T03:45:12.000Z
 !removeShareChannel <チャンネルのメンション（複数可能）>
 ```
 
+## Docker を使用する
+
+[Discord.jsで作ったグローバルチャットっぽいDiscordボット用のプログラムをDockerで動かす](/posts/ffa4a23742559f408ba857f32eaf9e8b)に書きました。
+
 ## 機能追加やバグ報告
 
 [リポジトリ](https://github.com/InkoHX/share-chat-webhook-discordjs)がありますので、そちらにプルリクエスト、バグ報告をお願いします。
