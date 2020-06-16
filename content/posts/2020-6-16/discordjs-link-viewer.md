@@ -46,6 +46,34 @@ client.login()
   .catch(console.error)
 ```
 
+## Docker で動かす
+
+誰でも簡単に試したり、使用できるように、[Docker](/tags/docker)イメージを公開してありますので、できればそちらの使用を推奨します。
+
+### docker run
+
+`************.*****.***************` の部分は[Discord](/tags/discord)ボットのトークンへ置き換えてください。
+
+```bash
+docker run -d -e DISCORD_TOKEN="************.*****.***************" --name link-viewer-discordbot inkohx/link-viewer-discordbot:latest
+```
+
+### docker start
+
+コンテナを動かすときに使用するコマンド
+
+```bash
+docker start link-viewer-discordbot
+```
+
+### docker stop
+
+コンテナを停止するときに使用するコマンド
+
+```bash
+docker stop link-viewer-discordbot
+```
+
 ## リンク
 
 - [リポジトリ](https://github.com/InkoHX/discord-link-viewer)
