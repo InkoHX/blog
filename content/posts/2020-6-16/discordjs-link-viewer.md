@@ -5,8 +5,8 @@ tags:
   - JavaScript
   - Docker
   - Discord
-modifiedDate: 2020-05-27T10:23:35.000Z
-createdDate: 2020-05-13T11:29:53.000Z
+modifiedDate: 2020-06-16T06:09:13.000Z
+createdDate: 2020-06-16T06:02:05.000Z
 ---
 
 [Discord](/tags/discord)には、メッセージをリンク（`https://discordapp.com/channels/サーバーID/チャンネルID/メッセージID`）としてコピーできるのだが、このリンクから、チャンネルIDとメッセージIDを取り出し、そのIDからメッセージの内容を取得して、メッセージリンクにアクセスせずとも、ボットがメッセージの内容を瞬時に表示するプログラムを書いたので、使い方の紹介
