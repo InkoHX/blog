@@ -1,0 +1,52 @@
+---
+title: Discord.jsを使ってメッセージリンクからメッセージの情報を取得して、瞬時に内容を表示するDiscordボットを作った。
+description: Discord.jsを使ってメッセージリンクからメッセージの情報を取得して、瞬時に内容を表示するDiscordボットを作った。
+tags:
+  - JavaScript
+  - Docker
+  - Discord
+modifiedDate: 2020-05-27T10:23:35.000Z
+createdDate: 2020-05-13T11:29:53.000Z
+---
+
+[Discord](/tags/discord)には、メッセージをリンク（`https://discordapp.com/channels/サーバーID/チャンネルID/メッセージID`）としてコピーできるのだが、このリンクから、チャンネルIDとメッセージIDを取り出し、そのIDからメッセージの内容を取得して、メッセージリンクにアクセスせずとも、ボットがメッセージの内容を瞬時に表示するプログラムを書いたので、使い方の紹介
+
+- メッセージリンクからチャンネルIDとメッセージIDを取得するには正規表現を使用
+  - `/http(?:s)?:\/\/(?:.*)?discord(?:app)?\.com\/channels\/(?:\d{17,19})\/(?<channelId>\d{17,19})\/(?<messageId>\d{17,19})/g`
+- リンク先の内容を表示する際に、メンションしないように `cleanContent` を使用する
+
+## コード
+
+```js
+const Discord = require('discord.js')
+const client = new Discord.Client({
+  disableMentions: 'everyone'
+})
+
+client.once('ready', () => console.log('READY'))
+
+client.on('message', message => {
+  const URL_PATTERN = /http(?:s)?:\/\/(?:.*)?discord(?:app)?\.com\/channels\/(?:\d{17,19})\/(?<channelId>\d{17,19})\/(?<messageId>\d{17,19})/g
+  let result
+
+  while ((result = URL_PATTERN.exec(message.content)) !== null) {
+    const group = result.groups
+
+    client.channels.fetch(group.channelId)
+      .then(channel => channel.messages.fetch(group.messageId))
+      .then(targetMessage => message.channel.send(targetMessage.cleanContent, [ ...targetMessage.attachments.values(), ...targetMessage.embeds ]))
+      .catch(error => message.reply(error)
+        .then(message => message.delete({ timeout: 10000 }))
+        .catch(console.error)
+      )
+  }
+})
+
+client.login()
+  .catch(console.error)
+```
+
+## リンク
+
+- [リポジトリ](https://github.com/InkoHX/discord-link-viewer)
+- [Docker Hub](https://hub.docker.com/r/inkohx/link-viewer-discordbot)
